@@ -6,6 +6,7 @@ colorTo: red
 sdk: gradio
 sdk_version: 5.0.0
 app_file: app.py
+python_version: "3.12"
 pinned: false
 hardware: cpu-basic
 short_description: Qwen 2.5 7B + LoRA in Aquinas's Summa form (CPU, slow)
