@@ -1,0 +1,172 @@
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Setup}
+\label{sec:setup}
+
+We hold out 10 philosophical prompts not seen during training,
+covering classical scholastic and Augustinian topics. The full list is:
+
+\begin{enumerate}
+  \item How do you reconcile divine foreknowledge with free will?
+  \item What is the relationship between faith and reason?
+  \item Discuss the problem of evil from a Thomistic perspective.
+  \item How does Augustine understand time in \emph{Confessions}, Book XI?
+  \item What does the Catechism teach about conscience and moral
+        formation?
+  \item Argue for or against the proposition that the soul is immortal.
+  \item Explain the doctrine of divine simplicity and its consequences.
+  \item How do the two cities of Augustine relate to political authority?
+  \item What is the role of the virtues in the Christian moral life?
+  \item How should we understand the relationship between grace and free
+        will?
+\end{enumerate}
+
+For each prompt we sample one response from each of the base model and the
+SFT-fine-tuned model under identical decoding settings (temperature 0.7,
+top-$p$ 0.95, max new tokens~512), and score the response with the rubric
+defined in Section~\ref{sec:rubric}.
+
+\subsection{Training dynamics}
+\label{sec:dynamics}
+
+Figure~\ref{fig:training} shows training loss across the 200 iterations and
+the two validation-loss measurements taken at iter~1 and iter~200. The
+training loss falls smoothly from 2.07 at iter~25 to 0.97 at iter~200, with
+no sign of instability or oscillation. Validation loss falls from 2.542 to
+1.721, a 32\,\% reduction. The gap between train and validation at iter~200
+is consistent with mild but not pathological generalization headroom; we
+did not observe overfitting under this configuration. Total wall time was
+$\approx$~7~minutes; peak resident memory was 12.7\,GB.
+
+\begin{figure}[H]
+\centering
+\input{figures/training-curve}
+\caption{LoRA SFT training dynamics. Training loss (filled line) is logged
+each 25~iters; validation loss (dashed) is measured at iter~1 and
+iter~200. The 32\,\% validation-loss reduction over 200~iters corresponds
+to a substantial qualitative shift in generations.}
+\label{fig:training}
+\end{figure}
+
+\subsection{Rubric results}
+\label{sec:rubric-results}
+
+Table~\ref{tab:rubric} reports the per-dimension and total rubric scores,
+summed across all 10 held-out prompts (so each dimension's per-model maximum
+is 30, and the per-model total maximum is 120).
+Figure~\ref{fig:rubric-bars} visualizes the same data.
+
+\begin{table}[H]
+\centering
+\caption{Rubric totals across 10 held-out prompts. Each per-prompt
+dimension is scored 0--3, so each per-dimension cell has maximum 30; the
+total has maximum 120. $\Delta$ is the SFT improvement over BASE.}
+\label{tab:rubric}
+\small
+\begin{tabular}{l r r r r}
+\toprule
+\textbf{Dimension} & \textbf{Max} & \textbf{BASE} & \textbf{SFT} & \textbf{$\Delta$} \\
+\midrule
+Scholastic register & 30 & 3  & 20 & +17 \\
+Augustinian voice   & 30 & 0  & 3  & +3  \\
+CCC grounding       & 30 & 0  & 19 & +19 \\
+Structure           & 30 & 16 & 26 & +10 \\
+\midrule
+\textbf{Total}      & \textbf{120} & \textbf{19} & \textbf{68} & \textbf{+49} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\input{figures/rubric-bars}
+\caption{Rubric scores by dimension (out of 30 per dimension, summed over
+10 prompts). The largest gains are in scholastic register and CCC
+grounding; Augustinian voice remains low (see
+Section~\ref{sec:augustinian-gap}).}
+\label{fig:rubric-bars}
+\end{figure}
+
+The headline number is a +49-point total gain on a 120-point scale, a
+258\,\% relative improvement over base. The model effectively gains
+the Summa surface markers (3$\to$20), starts citing CCC paragraphs
+(0$\to$19), and writes longer multi-paragraph answers with objection /
+reply structure (16$\to$26). The Augustinian dimension, by contrast,
+barely moves (0$\to$3) -- a known limitation that we attribute to
+corpus imbalance and discuss in Section~\ref{sec:augustinian-gap}.
+
+\subsection{Qualitative comparison}
+\label{sec:qualitative}
+
+To illustrate the magnitude of the surface shift,
+Listing~\ref{lst:base} and Listing~\ref{lst:sft} reproduce verbatim base
+and SFT responses to the prompt \emph{How do you reconcile divine
+foreknowledge with free will?} Both samples are condensed for space
+(ellipsized in the middle, marked \verb|[...]|); the un-elided versions
+preserve the structural pattern shown here. Differences worth flagging:
+
+\begin{itemize}
+  \item BASE answers in modern philosophical-encyclopedia register
+        (``This is a classic question in philosophy of religion\dots'')
+        with no internal structural markers and no CCC citations.
+  \item SFT opens with ``It seems that\,\dots,'' raises a numbered
+        objection, gives an ``On the contrary'' counter-citation, an ``I
+        answer that'' resolution, and a ``Reply to Objection~1''
+        section, with CCC paragraph references inline.
+\end{itemize}
+
+\begin{lstlisting}[caption={BASE (Qwen 2.5\,7B-Instruct, no adapter)},
+                    label=lst:base,frame=single]
+This is one of the classic questions in philosophy of religion, often
+called the problem of divine foreknowledge and free will. The
+challenge is: if God knows in advance what we will do, are we still
+free? Different traditions have responded differently. Boethius argued
+that God's knowledge is timeless, so it does not determine our future.
+[...] In contemporary analytic philosophy, philosophers such as
+Plantinga, Hasker, and Zagzebski have proposed Molinist, open-theist,
+and timeless-knowledge views respectively.
+\end{lstlisting}
+
+\begin{lstlisting}[caption={SFT (Qwen 2.5\,7B-Instruct + LoRA, our adapter)},
+                    label=lst:sft,frame=single]
+It seems that divine foreknowledge is incompatible with human freedom.
+
+Objection 1. For if God knows from eternity that I shall act thus,
+then it is not possible that I act otherwise; and what is not possible
+otherwise is not free. Therefore foreknowledge destroys freedom.
+
+On the contrary, the Catechism teaches that man is endowed with reason
+and free will, and is responsible for his acts (CCC 1730). Yet
+nothing is hidden from God (CCC 302), who knows and wills all that
+comes to pass.
+
+I answer that, we must distinguish the manner in which God knows from
+the manner in which we know. [...] The divine knowing is the
+measure of the thing known; whereas our knowing is measured by the
+thing. Hence God's foreknowledge does not impose necessity on
+contingent acts, but knows them as they are.
+
+Reply to Objection 1. The impossibility alleged is not absolute but
+conditional: it is impossible that I act otherwise *given that God
+foreknows* my act, but the act itself remains contingent in itself.
+\end{lstlisting}
+
+The shift is large and not subtle. The SFT model has not only acquired
+a register; it has acquired a structural template that it applies even to
+prompts it never saw at training time. Whether the \emph{content} of
+those structural slots is theologically correct is a separate question,
+addressed in Section~\ref{sec:ethics}.
+
+\subsection{Phase 2 (ongoing)}
+\label{sec:phase2}
+
+A second phase of experiments was launched concurrently with the writing
+of this paper and is running in a separate background process. Phase~2
+expands the teacher-distilled corpus to 300 (question, answer) pairs
+(versus 83), extends SFT to 800 iterations (versus 200), and chains DPO on
+top of SFT using base-vs-SFT pairs as preference data. Detailed results
+will be reported in a revision.
+
+\todo{Phase 2 results -- training-curve, rubric deltas, DPO chain
+metrics. Currently in flight.}

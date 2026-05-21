@@ -1,0 +1,119 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why SFT on 7B Q8 worked where DPO/ORPO on 1.5B 4-bit did not}
+\label{sec:why-it-worked}
+
+Before arriving at the Phase~1 recipe reported here, this project ran
+preference-optimization experiments on Qwen~2.5\,1.5B at 4-bit
+quantization. Both DPO \cite{rafailov2023dpo} and ORPO \cite{orpo}
+produced apparently strong validation signals -- DPO converged to
+1.0 accuracy with a 7.5-nat margin between chosen and rejected
+responses -- while generations from the trained adapters were nearly
+byte-identical to the base for most prompts. For ORPO, generations for
+three of four spot-checked prompts were \emph{literally} byte-identical
+to base.
+
+This is the well-documented asymmetric-reward failure mode of DPO: the
+likelihood gap can be widened by pushing the rejected response down rather
+than by pulling the chosen response up, in which case the policy
+moves very little in the regions of the output distribution that
+inference actually samples from. Three factors plausibly compounded the
+problem in our 1.5B 4-bit setting:
+
+\begin{enumerate}
+  \item \textbf{Capacity.} A 1.5B model has less unused representational
+        room to write a new register on top of the existing
+        helpful-assistant policy. Stylistic transfer competes more
+        directly with the model's other behaviors.
+  \item \textbf{Quantization.} 4-bit weight quantization, while necessary
+        for memory at small budgets, limits the precision with which the
+        adapter can express small but consequential shifts in
+        next-token distribution. We hypothesize, without proving, that
+        8-bit is qualitatively friendlier to LoRA-style adaptation.
+  \item \textbf{Objective.} Preference objectives are a strange first
+        teaching signal when the base model has effectively zero
+        probability mass on the target register. SFT directly maximizes
+        the likelihood of target-register sequences and so injects mass
+        where preference optimization can only reweight it.
+\end{enumerate}
+
+The Phase~1 recipe deliberately addressed all three: a larger base
+(7B), a gentler quantization (Q8), and SFT as the first training step.
+We do not claim that DPO is generally inferior to SFT for register
+transfer; we claim that for our setting -- small handcrafted corpus,
+small open-weights base, on-device training -- starting with SFT was
+the right call, and a useful negative result for practitioners
+considering preference optimization with similar constraints.
+
+\subsection{The Augustinian gap}
+\label{sec:augustinian-gap}
+
+The most striking dimension-level failure in Table~\ref{tab:rubric} is
+\emph{Augustinian voice}, which moves from 0 to only 3 out of 30. The
+cause is a corpus imbalance: of the 342 source chunks, the Summa
+dominates by chunk count, and the Claude teacher's pair generator was
+more confident producing Summa-form outputs than Augustinian-form ones.
+The 83-pair training mix is consequently heavily Summa-weighted, and
+the model has not been shown enough Augustinian register to internalize
+its surface markers (second-person address to God, autobiographical
+framing, scriptural allusion).
+
+The Phase~2 plan addresses this by oversampling Confessions and City of
+God chunks during pair generation and by adding an explicit
+Augustinian-voice instruction variant in the teacher's system prompt.
+
+\subsection{Ethics}
+\label{sec:ethics}
+
+The trained model is not a theological authority and must not be
+treated as one. Two concrete risks deserve calling out:
+
+\begin{itemize}
+  \item \textbf{Hallucinated CCC citations.} The fine-tuned model
+        confidently emits ``CCC~$n$'' references with the surface form of
+        ground truth. The rubric counts these as \emph{grounding}; it
+        does not verify them. Spot checks show that a non-trivial fraction
+        of paragraph numbers do not correspond to the actual content of
+        the cited paragraph. Users must verify against the actual
+        Catechism before trusting any specific citation.
+  \item \textbf{Doctrinal authority.} The model speaks in a voice
+        culturally associated with magisterial authority. It is not
+        magisterially authoritative, has no episcopal review, and can
+        confidently err. The repository's \texttt{README.md} carries a
+        prominent NOTICE to this effect; any publication should
+        reproduce that disclaimer.
+\end{itemize}
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\paragraph{Evaluation set size.} Ten held-out prompts is a small sample.
+Variance estimates on per-dimension and total scores are therefore
+generous; the +49-point delta is large relative to noise but we have
+not bootstrapped a confidence interval.
+
+\paragraph{Rubric coarseness.} A regex-based rubric measures lexical and
+structural surface form. It cannot detect theological correctness,
+internal consistency, or the difference between a well-formed objection
+that resolves coherently and one whose ``I answer that'' contradicts the
+``Reply to Objection 1.'' The rubric is a fast iteration tool, not a
+judgment.
+
+\paragraph{No human evaluation.} We did not run a human rater study. A
+small expert eval (e.g., three theologically literate raters across 30
+prompts) would tighten claims about scholastic register quality and
+catch problems the rubric cannot.
+
+\paragraph{Adversarial prompts.} We did not test the model on
+intentionally adversarial prompts (jailbreaks, theological provocations,
+out-of-domain queries that invite hallucinated citations). On-domain
+behavior is the focus here; full safety evaluation is future work.
+
+\paragraph{Fair-use posture on CCC.} Catechism text is used in source
+material, in teacher-generated answer pairs, and in adapter weights
+that arguably constitute a derivative work. We treat the LoRA weights
+themselves as non-redistributable by default; only code, recipe, and
+aggregate metrics are released. A future public model release would
+need a careful review and would likely have to restrict CCC content to
+ideas rather than verbatim text.

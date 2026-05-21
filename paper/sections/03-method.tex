@@ -1,0 +1,133 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Data sources}
+\label{sec:data}
+
+The training corpus is sourced from four primary works, summarized in
+Table~\ref{tab:sources}. Two are English public-domain translations from
+the early twentieth century, one is a contemporary copyrighted catechetical
+work used here under a fair-use research posture, and one (City of God)
+shares the same translator family as Confessions.
+
+\begin{table}[H]
+\centering
+\caption{Primary sources used to build the training corpus.}
+\label{tab:sources}
+\small
+\begin{tabular}{p{4.6cm} p{3.2cm} p{2.0cm} p{3.4cm}}
+\toprule
+\textbf{Work} & \textbf{Translation} & \textbf{Status} & \textbf{Source URL} \\
+\midrule
+Catechism of the Catholic Church (1992) & USCCB / Libreria Editrice Vaticana &
+Copyrighted (fair-use research posture) & vatican.va \\
+Summa Theologica & Fr.~Laurence Shapcote, 1920 & Public domain (US) &
+newadvent.org \\
+Augustine, Confessions & E.B.~Pusey & Public domain & newadvent.org \\
+Augustine, City of God & Marcus Dods & Public domain & newadvent.org \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+After scraping with a respectful crawler (descriptive user agent,
+1-second sleep between requests, on-disk cache, \texttt{robots.txt}
+compliance) and cleaning, we obtain a corpus of 342 structured chunks
+distributed across the four sources. Neither the raw HTML, the cleaned
+JSONL chunks, nor the trained adapter weights are committed to the public
+repository; only code, recipe, aggregate metrics, and short qualitative
+excerpts are shared. See the project's \texttt{DATA\_LICENSING.md} for
+details.
+
+\subsection{Pipeline}
+\label{sec:pipeline}
+
+Figure~\ref{fig:pipeline} shows the end-to-end data path. The pipeline is
+deliberately small and inspectable -- each arrow is a short Python script
+with a single responsibility.
+
+\begin{figure}[H]
+\centering
+\input{figures/pipeline}
+\caption{End-to-end data pipeline for Phase~1. Primary sources are scraped
+respectfully, cleaned into a structured JSONL chunk corpus, then expanded
+by a Claude Sonnet 4.6 teacher into (question, scholastic-answer) pairs
+that drive LoRA SFT of Qwen 2.5\,7B-Instruct under MLX with 8-bit weight
+quantization.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Teacher-distilled training data}
+\label{sec:teacher}
+
+For each source chunk we ask Claude Sonnet 4.6, acting as a teacher model,
+to produce 2--3 (question, answer) pairs in which the answer is written
+in scholastic register. The system prompt (paraphrased here; full text in
+\texttt{scripts/generate\_training\_pairs.py}) instructs the teacher to:
+
+\begin{itemize}
+  \item produce a question a graduate student of theology or philosophy
+        might plausibly ask, drawn from the chunk's subject matter;
+  \item answer in either Summa form (``It seems that\,\dots Objection
+        1\,\dots On the contrary\,\dots I answer that\,\dots Reply to
+        Objection 1\,\dots'') or in Augustinian form (autobiographical
+        second-person address with scriptural allusion), as fits the
+        chunk;
+  \item cite the CCC by paragraph number where doctrinally apposite;
+  \item refuse to invent CCC paragraph numbers if not directly attested in
+        the chunk, instead citing thematically.
+\end{itemize}
+
+The teacher outputs JSON conforming to a strict schema, validated by the
+client. Across 342 chunks, the teacher produced 93 (question, answer)
+pairs (we discard malformed JSON or pairs shorter than a threshold). We
+split 83/10 train/valid by random shuffle with a fixed seed. The
+total API cost for this run was approximately \$0.50 at then-current
+Claude Sonnet pricing.
+
+\subsection{Model and training}
+\label{sec:training}
+
+We start from Qwen~2.5\,7B-Instruct \cite{qwen25}, converted to MLX format
+with 8-bit weight quantization
+(\texttt{mlx\_lm.convert --q --q-bits 8}). On disk the quantized model is
+$\approx$\,7.8\,GB; resident memory during training peaks at 12.7\,GB.
+
+We attach LoRA adapters to the top 16 transformer layers (out of 28),
+training with AdamW at a learning rate of $10^{-5}$, batch size~1, maximum
+sequence length~2048, for 200 iterations. With batch~1 and 83 training
+pairs this is approximately 2.4 epochs. Training throughput is
+0.48~it/s ($\approx$~235~tok/s) and the full 200-iteration run takes about
+seven minutes wall-clock on the M4~Pro. We use the standard MLX-LM LoRA
+\cite{mlx} training entrypoint (\texttt{mlx\_lm\_lora.train}). The
+adapter writes 2.6M trainable parameters out of 7.6B total
+(0.034\,\%).
+
+\subsection{Evaluation rubric}
+\label{sec:rubric}
+
+Because no shared benchmark exists for scholastic-register transfer, we
+score model outputs on a custom rubric implemented in
+\texttt{src/scholastic/rubric.py}. The rubric is intentionally simple:
+four orthogonal dimensions, each scored 0--3, giving a per-prompt total
+0--12. Across $N$ prompts the maximum is $12N$.
+
+\begin{description}
+  \item[Scholastic register (0--3)] Counts of distinct surface markers
+        like \emph{I answer that}, \emph{It seems that}, \emph{Objection},
+        \emph{Reply to Objection}, \emph{On the contrary}, and
+        scholastic connectives (\emph{accordingly}, \emph{insofar as},
+        \emph{wherein}, etc.).
+  \item[Augustinian voice (0--3)] Distinct hits among autobiographical or
+        confessional markers (\emph{O Lord}, archaic second-person
+        pronouns, \emph{my soul}, \emph{the City of God}).
+  \item[CCC grounding (0--3)] Visible paragraph-number citations (\S~$n$,
+        \emph{CCC $n$}, ``paragraph $n$'').
+  \item[Structure (0--3)] Number of paragraphs combined with the
+        presence of objection-and-response structural markers.
+\end{description}
+
+This rubric is a coarse signal. It rewards lexical and structural
+surface form rather than theological correctness, and it can be gamed by
+shallow string interpolation. We treat it as a useful proxy for
+register transfer, not as a substitute for human evaluation; see
+Section~\ref{sec:limitations} for discussion.

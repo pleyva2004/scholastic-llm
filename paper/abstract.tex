@@ -1,0 +1,24 @@
+\begin{abstract}
+General-purpose instruction-tuned language models default to a flat,
+encyclopedic register. Specialized historical writing -- the Summa's
+\emph{quaestio} form, Augustine's autobiographical address, the Catechism's
+numbered paragraph citations -- has a distinct lexical and structural
+fingerprint that is largely absent from base-model output. We ask whether a
+small (7B-parameter) open-weights model can be shifted into such a register
+cheaply, on a laptop, using only public-domain or fair-use source texts and a
+modest budget. We post-train Qwen 2.5 7B-Instruct on Apple Silicon under MLX
+with 8-bit weight quantization and LoRA, using 83 teacher-distilled
+(question, scholastic-answer) pairs synthesized from the Catechism of the
+Catholic Church (1992), Aquinas's \emph{Summa Theologica}, and Augustine's
+\emph{Confessions} and \emph{City of God}. Training takes about seven minutes
+at a peak resident memory of 12.7\,GB on an M4 Pro and updates only 2.6M of
+7.6B parameters. On a rubric measuring scholastic register, Augustinian
+voice, CCC grounding, and argument structure across 10 held-out
+philosophical prompts, the fine-tuned model scores 68/120 against the base
+model's 19/120 -- a 258\,\% relative gain, with the largest improvements in
+register (3\,$\to$\,20) and CCC grounding (0\,$\to$\,19). We contrast this
+positive result against earlier failed DPO and ORPO runs on a 1.5B 4-bit
+base, where preference optimization left generations effectively unchanged.
+Code, recipe, and rubric are released; a Phase 2 (300 pairs, 800 iterations,
+DPO chain) is concurrent.
+\end{abstract}

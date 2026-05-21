@@ -1,0 +1,70 @@
+\section{Introduction}
+
+Modern instruction-tuned large language models (LLMs) are trained to produce
+fluent, encyclopedic prose that is appropriate to a generic helpful-assistant
+persona. This is exactly what most product use cases reward, and exactly
+what makes them unsatisfying for tasks that demand a specific historical
+register. Aquinas's \emph{Summa Theologica} is recognizable not only by its
+theological commitments but by its surface form -- the \emph{quaestio}, the
+``It seems that,'' the explicit numbered objections, the ``On the contrary,
+\dots,'' the ``I answer that, \dots,'' followed by replies to each
+objection. Augustine writes confessionally, addressing God in the second
+person, drawing autobiographical detail toward dogmatic claim. The
+Catechism of the Catholic Church (CCC, 1992) cites itself by numbered
+paragraph and binds doctrine to scriptural and patristic references. A
+foundation model trained on the modern web can repeat propositions from
+these documents but rarely \emph{sounds} like them when prompted to speak in
+their voice.
+
+This paper asks a narrow question: can a small open-weights model -- on the
+order of 7B parameters -- be moved into the scholastic register cheaply, on
+a single laptop, using only public-domain or fair-use source texts and a
+small teacher-distillation budget?
+
+We answer affirmatively for stylistic transfer. We post-train Qwen
+2.5\,7B-Instruct \cite{qwen25} on Apple Silicon (M4 Pro, 48\,GB unified
+memory) using MLX \cite{mlx} with 8-bit weight quantization and LoRA
+\cite{lora}, on 83 teacher-distilled (question, answer) pairs synthesized by
+Claude Sonnet from primary source chunks. Training takes seven minutes,
+peaks at 12.7\,GB of resident memory, and updates 2.6M of 7.6B parameters
+(0.034\,\%). The resulting adapter raises a coarse register-and-grounding
+rubric from 19/120 to 68/120 across 10 held-out philosophical prompts, with
+the strongest gains in scholastic register and CCC paragraph grounding.
+
+We also report what did \emph{not} work earlier in this project, since the
+contrast motivated the recipe above. Preference-optimization experiments
+(DPO, ORPO) on a smaller (Qwen 2.5\,1.5B, 4-bit) base model produced
+seemingly excellent validation metrics -- DPO converged to 1.0 accuracy
+with a 7.5-nat margin -- while generations were nearly byte-identical to the
+base. This is the classic asymmetric-reward DPO failure mode
+\cite{rafailov2023dpo}: the model learns to push the rejected response down
+without pulling the chosen response up. Capacity (1.5B) and aggressive
+quantization (4-bit) plausibly both contributed. The Phase~1 recipe we
+report here was a deliberate response: a larger base (7B), gentler
+quantization (Q8), supervised fine-tuning before any preference signal.
+
+\paragraph{Contributions.} This paper makes three contributions:
+\begin{enumerate}
+  \item A reproducible recipe for stylistic and citation-style transfer in a
+        7B-parameter model under MLX Q8 + LoRA, training end-to-end in
+        $\approx$\,7 minutes on a 48\,GB M4 Pro.
+  \item A teacher-distillation pipeline (scrape $\to$ clean $\to$
+        Claude-as-teacher $\to$ SFT) that produces $\approx$\,90 high-quality
+        training pairs for $\approx$\,\$0.50 in API cost, with the option
+        to scale to hundreds without retraining the teacher.
+  \item A rubric-based evaluation of register, voice, citation grounding,
+        and structural form that, while coarse, exposes large and signed
+        deltas between base and fine-tuned models. We release the rubric
+        and a held-out 10-prompt evaluation set.
+\end{enumerate}
+
+\paragraph{Roadmap.} Section~\ref{sec:related} surveys related work on
+instruction tuning, parameter-efficient fine-tuning, preference
+optimization, on-device training, and stylistic adaptation. Section
+\ref{sec:method} describes data sources, the teacher-distilled pair
+generator, the training recipe, and the evaluation rubric.
+Section~\ref{sec:experiments} reports training dynamics, rubric results, and
+verbatim qualitative comparisons. Section~\ref{sec:discussion} reflects on
+why the recipe worked where DPO/ORPO on a 1.5B base did not, on the
+``Augustinian gap'' caused by data imbalance, on ethics, and on limitations.
+Section~\ref{sec:conclusion} closes with future work.

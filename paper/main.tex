@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+
+\usepackage{arxiv-style}
+
+% additional packages used by figures / listings
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  framesep=4pt,
+  rulecolor=\color{black!25},
+  showstringspaces=false,
+}
+
+\title{Teaching a Small LLM Scholastic Voice:\\
+Fine-Tuning Qwen 2.5 on the Catechism, Summa, and Augustine via Local MLX}
+\author{Pablo Leyva\\\small Independent Research\\\small \href{mailto:pleyva2004@gmail.com}{\texttt{pleyva2004@gmail.com}}}
+\date{\today}
+
+\runningtitle{Teaching a Small LLM Scholastic Voice}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-related-work}
+\input{sections/03-method}
+\input{sections/04-experiments}
+\input{sections/05-discussion}
+\input{sections/06-conclusion}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
