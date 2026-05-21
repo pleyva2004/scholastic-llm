@@ -85,8 +85,9 @@ fair-use sources?
 
 \section*{Pipeline}
 \begin{center}
-\resizebox{\linewidth}{!}{\input{figures/pipeline}}
+\resizebox{0.95\linewidth}{!}{\input{figures/pipeline}}
 \end{center}
+\vspace{-0.6em}
 \begin{itemize}
   \item Scrape CCC (vatican.va), Summa, Augustine (newadvent.org) with
         rate-limiting and on-disk cache.
@@ -108,18 +109,18 @@ fair-use sources?
 \end{itemize}
 
 \section*{Held-out evaluation}
-10 philosophical prompts not seen during training: nature of evil,
-faith and reason, grace and free will, soul/body, suffering, knowing
-God, neighbor-love, natural law, divine foreknowledge, meaning of life.
-Rubric: 4 dimensions, each 0--3 per prompt, summed across 10 prompts
-(per-dimension max 30, total max 120).
+10 philosophical prompts not seen in training (evil, faith and reason,
+grace/free will, soul/body, suffering, knowing God, neighbor-love,
+natural law, foreknowledge, meaning of life). Rubric: 4 dimensions
+$\times$ 0--3, summed across 10 prompts (max 120).
 
 \columnbreak
 
 \section*{Results}
 \begin{center}
-\resizebox{\linewidth}{!}{\input{figures/rubric-bars}}
+\resizebox{0.95\linewidth}{!}{\input{figures/rubric-bars}}
 \end{center}
+\vspace{-0.6em}
 
 \noindent Per-dimension deltas (BASE $\to$ SFT, max 30): scholastic
 register \textbf{3$\to$20} (+17), CCC grounding \textbf{0$\to$19} (+19),
