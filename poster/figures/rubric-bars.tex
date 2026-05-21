@@ -1,52 +1,38 @@
-% Poster-native rubric bar chart. Wider bars, tighter category spacing,
-% legend out of the bar area, taller y-axis labels.
 \begin{tikzpicture}
 \begin{axis}[
-    width=0.98\linewidth,
-    height=14cm,
+    width=0.92\linewidth,
+    height=7cm,
     ybar,
-    bar width=42pt,
-    ymin=0, ymax=82,
-    enlarge x limits=0.10,
+    bar width=8pt,
+    ymin=0, ymax=80,
+    enlarge x limits=0.12,
     ylabel={Rubric score (summed over 10 prompts)},
-    symbolic x coords={Schol.\ register, Augustinian\ voice, CCC\ grounding, Structure, Total},
+    symbolic x coords={Schol.\,register, Augustinian\,voice, CCC\,grounding, Structure, Total},
     xtick=data,
-    x tick label style={font=\normalsize, rotate=18, anchor=east, yshift=-2pt},
-    y tick label style={font=\normalsize},
-    ylabel style={font=\large},
+    x tick label style={font=\footnotesize, rotate=18, anchor=east},
+    tick label style={font=\footnotesize},
+    label style={font=\small},
     nodes near coords,
-    nodes near coords style={font=\normalsize, anchor=south, yshift=2pt},
-    legend image code/.code={
-      \draw [#1] (0cm,-0.15cm) rectangle (0.45cm,0.15cm);
-    },
-    legend style={
-      at={(0.5,1.02)},
-      anchor=south,
-      legend columns=-1,
-      font=\large,
-      fill=white,
-      draw=black!35,
-      column sep=1.2em,
-      inner sep=6pt,
-    },
+    nodes near coords style={font=\scriptsize},
+    legend pos=north west,
+    legend style={font=\small,fill=white,fill opacity=0.9,text opacity=1,draw=black!40},
     grid=major,
-    grid style={dashed,gray!25},
-    every axis plot/.append style={line width=1pt},
+    grid style={dashed,gray!20},
   ]
 
-  \addplot[fill=gray!55, draw=gray!75!black] coordinates {
-    (Schol.\ register, 3)
-    (Augustinian\ voice, 0)
-    (CCC\ grounding, 0)
+  \addplot[fill=gray!60, draw=gray!80!black] coordinates {
+    (Schol.\,register, 3)
+    (Augustinian\,voice, 0)
+    (CCC\,grounding, 0)
     (Structure, 16)
     (Total, 19)
   };
-  \addlegendentry{BASE (Qwen 2.5\,7B-Instruct)}
+  \addlegendentry{BASE (Qwen 2.5 7B-Instruct)}
 
   \addplot[fill=blue!55!black, draw=blue!75!black] coordinates {
-    (Schol.\ register, 20)
-    (Augustinian\ voice, 3)
-    (CCC\ grounding, 19)
+    (Schol.\,register, 20)
+    (Augustinian\,voice, 3)
+    (CCC\,grounding, 19)
     (Structure, 26)
     (Total, 68)
   };

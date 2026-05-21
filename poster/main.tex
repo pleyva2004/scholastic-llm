@@ -1,276 +1,180 @@
-% scholastic-llm — A0 portrait conference poster
-% Uses the Gemini beamerposter theme by Anish Athalye (MIT), vendored locally.
+% scholastic-llm — A4 portrait one-pager
+% (built by the same build-poster.yml workflow → docs/poster.pdf →
+%  pleyva2004.github.io/scholastic-llm/poster.pdf)
 
-\documentclass[final]{beamer}
+\documentclass[a4paper,10pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[size=custom,width=84.1,height=118.9,scale=1.0]{beamerposter}
-\usetheme{gemini}
-\usecolortheme{gemini}
+\usepackage[
+  paper=a4paper,
+  top=1.4cm, bottom=1.6cm,
+  left=1.6cm, right=1.6cm,
+  headsep=0.4cm
+]{geometry}
+\usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=1.2em, topsep=2pt, partopsep=0pt}
+\usepackage{multicol}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usepackage{anyfontsize}
 \usepackage{qrcode}
 \usepackage{xcolor}
+\definecolor{accent}{HTML}{5e3023}
+\definecolor{boxbg}{HTML}{f4f0eb}
+\usepackage[hidelinks,colorlinks=true,urlcolor=accent,linkcolor=accent]{hyperref}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-0.1em}\noindent\textcolor{accent!40}{\rule{\linewidth}{0.6pt}}]
+\titlespacing*{\section}{0pt}{0.6em}{0.3em}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{0.3em}{0.1em}
+\pagestyle{empty}
 
-% ====================
-% Column lengths (2 columns)
-% ====================
-\newlength{\sepwidth}
-\newlength{\colwidth}
-\setlength{\sepwidth}{0.025\paperwidth}
-\setlength{\colwidth}{0.4625\paperwidth}
-
-\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
-
-% ====================
-% Title block
-% ====================
-
-\title{Teaching a Small LLM Scholastic Voice}
-
-\author{Pablo Leyva}
-
-\institute[shortinst]{Independent Research \hspace{1em}---\hspace{1em} \texttt{github.com/pleyva2004/scholastic-llm}}
-
-\footercontent{
-  \href{https://pleyva2004.github.io/scholastic-llm/main.pdf}{Read the paper}
-  \hfill
-  Fine-Tuning Qwen 2.5 on the Catechism, Summa, and Augustine via Local MLX
-  \hfill
-  \href{mailto:pleyva2004@gmail.com}{pleyva2004@gmail.com}
-}
-
-% ====================
-% Body
-% ====================
+% tighten line spacing slightly
+\linespread{1.06}
 
 \begin{document}
 
-\begin{frame}[t]
-\begin{columns}[t]
-\separatorcolumn
+% ---------------------------------------------------------------------------
+% Header
+% ---------------------------------------------------------------------------
+\begin{center}
+  {\Large\bfseries\color{accent} Teaching a Small LLM Scholastic Voice}\\[2pt]
+  {\small\itshape Fine-Tuning Qwen 2.5 on the Catechism, Summa, and Augustine via Local MLX}\\[3pt]
+  {\small Pablo Leyva \,$\cdot$\, Independent Research \,$\cdot$\,
+    \href{https://github.com/pleyva2004/scholastic-llm}{github.com/pleyva2004/scholastic-llm}
+    \,$\cdot$\,
+    \href{https://pleyva2004.github.io/scholastic-llm/main.pdf}{paper}}
+\end{center}
+\vspace{-0.4em}
+\noindent\textcolor{accent!40}{\rule{\linewidth}{0.6pt}}
 
-% --------------------------------------------------------------------
-% LEFT COLUMN
-% --------------------------------------------------------------------
-\begin{column}{\colwidth}
+% ---------------------------------------------------------------------------
+% Headline TL;DR box
+% ---------------------------------------------------------------------------
+\vspace{0.4em}
+\noindent\fcolorbox{accent!30}{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{TL;DR.} A 7B open-weights model (Qwen 2.5) shifts from flat
+encyclopedic prose to scholastic / Summa-form prose in $\sim$7 minutes on
+a 48\,GB M4 Pro using LoRA + MLX Q8 and just 83 teacher-distilled
+(question, answer) pairs. A 4-dimension rubric of register, citation
+grounding, and argument structure rises from
+\textbf{19/120 to 68/120 (+258\%)} on 10 held-out philosophical prompts.
+}}
 
-  \begin{block}{Motivation}
+% ---------------------------------------------------------------------------
+% Two-column body
+% ---------------------------------------------------------------------------
+\begin{multicols}{2}
 
-    Modern instruction-tuned LLMs default to flat, encyclopedic prose.
-    Specialized historical writing has a distinct lexical and structural
-    fingerprint: the Summa's \emph{quaestio} form, Augustine's
-    autobiographical address, the Catechism's numbered paragraph
-    citations.
+\section*{Motivation}
+Instruction-tuned LLMs default to a flat, encyclopedic register.
+Specialized historical writing --- the Summa's \emph{quaestio} form,
+Augustine's autobiographical address, the Catechism's numbered paragraph
+citations --- has a distinct lexical and structural fingerprint that is
+absent from base-model output. Can a 7B open-weights model be moved into
+that register \emph{cheaply}, on a laptop, using only public-domain or
+fair-use sources?
 
-    \vspace{0.5em}
+\section*{Pipeline}
+\begin{center}
+\resizebox{\linewidth}{!}{\input{figures/pipeline}}
+\end{center}
+\begin{itemize}
+  \item Scrape CCC (vatican.va), Summa, Augustine (newadvent.org) with
+        rate-limiting and on-disk cache.
+  \item Clean into 342 structured JSONL chunks.
+  \item Claude Sonnet 4.6 as \emph{teacher}: per chunk, 2--3
+        (question, scholastic-answer) pairs with explicit register and
+        CCC-citation instructions. 93 pairs, $\approx\$0.50$.
+  \item Supervised fine-tune Qwen 2.5\,7B-Instruct (MLX Q8) with LoRA.
+\end{itemize}
 
-    \textbf{Question.} Can a small open-weights model (7B parameters) be
-    moved into this scholastic register \emph{cheaply}, on a single
-    laptop, using only public-domain or fair-use source texts?
+\section*{Training setup}
+\begin{itemize}
+  \item Base \texttt{Qwen2.5-7B-Instruct}, MLX 8-bit quantization
+  \item LoRA on top 16 of 28 transformer layers
+  \item AdamW, LR $10^{-5}$, batch 1, max seq 2048
+  \item 200 iters, 83 train + 10 valid; wall time $\approx$\,7~min
+  \item Hardware Apple M4 Pro, 48\,GB unified memory
+  \item Peak memory 12.7\,GB; trainable params 2.6M / 7.6B (0.034\,\%)
+\end{itemize}
 
-    \vspace{0.5em}
+\section*{Held-out evaluation}
+10 philosophical prompts not seen during training: nature of evil,
+faith and reason, grace and free will, soul/body, suffering, knowing
+God, neighbor-love, natural law, divine foreknowledge, meaning of life.
+Rubric: 4 dimensions, each 0--3 per prompt, summed across 10 prompts
+(per-dimension max 30, total max 120).
 
-    \textbf{Answer.} Yes. With teacher-distilled supervised fine-tuning
-    on $\sim$80 (question, scholastic-answer) pairs, a rubric measuring
-    register, citation grounding, and argument structure rises from
-    \textbf{19/120 to 68/120} (+258\%) on 10 held-out philosophical
-    prompts.
+\columnbreak
 
-  \end{block}
+\section*{Results}
+\begin{center}
+\resizebox{\linewidth}{!}{\input{figures/rubric-bars}}
+\end{center}
 
-  \begin{block}{Pipeline}
+\noindent Per-dimension deltas (BASE $\to$ SFT, max 30): scholastic
+register \textbf{3$\to$20} (+17), CCC grounding \textbf{0$\to$19} (+19),
+structure \textbf{16$\to$26} (+10), Augustinian voice 0$\to$3.
 
-    \begin{figure}
-      \centering
-      \input{figures/pipeline}
-    \end{figure}
+\section*{Qualitative example}
+\noindent\textbf{Q.} \emph{How do you reconcile divine foreknowledge
+with free will?}
 
-    \begin{itemize}
-      \item Scrape CCC (vatican.va), Summa, Augustine (newadvent.org)
-            with rate-limiting and on-disk cache.
-      \item Clean into 342 structured JSONL chunks.
-      \item Claude Sonnet 4.6 as \emph{teacher}: per chunk, generate 2--3
-            (question, scholastic-answer) pairs with explicit register
-            and CCC-citation instructions. 93 pairs, $\approx$\$0.50.
-      \item Supervised fine-tune Qwen 2.5\,7B-Instruct under MLX.
-    \end{itemize}
+\smallskip\noindent\textbf{BASE:} ``The reconciliation of divine
+foreknowledge with free will is a classic philosophical and theological
+problem that has been debated for centuries\dots''
 
-  \end{block}
+\smallskip\noindent\textbf{SFT:} ``This is perhaps the most ancient and
+most pressing question in all of metaphysics, and it is one that the
+Angelic Doctor addresses with great precision. \textbf{Objection~1.} It
+would seem that divine foreknowledge destroys free will, for if God
+knows\dots''
 
-  \begin{block}{Training Setup}
+\section*{Phase 2: voice rebalancing + DPO}
+Scaled to 377 pairs with per-source register hints (Aquinas for
+\emph{Summa}/CCC, Augustinian for \emph{Confessions}/\emph{City of
+God}), 800 SFT iters. Best checkpoint \textbf{iter 400}.
+\textbf{Augustinian gap closed} (\texttt{aug} $3\to7\text{--}13$); under
+a balanced rubric that credits register fluency
+($\max(\textsc{reg},\textsc{aug})$), Phase~2 reaches \textbf{68/90 vs
+Phase~1's 66/90}.
 
-    \begin{itemize}
-      \item Base: \texttt{Qwen2.5-7B-Instruct}, MLX 8-bit quantization
-      \item LoRA on top 16 of 28 transformer layers
-      \item AdamW, LR $10^{-5}$, batch size 1, max seq 2048
-      \item 200 iterations, 83 train + 10 valid
-      \item Hardware: Apple M4 Pro, 48\,GB unified memory
-      \item Wall time: $\approx$\,7 minutes
-      \item Peak resident memory: 12.7\,GB
-      \item Trainable parameters: 2.6M / 7.6B (0.034\,\%)
-    \end{itemize}
+\smallskip\noindent\textbf{Negative result.} A DPO chain
+(\emph{chosen}~$=$~SFT output, \emph{rejected}~$=$~base output) was
+inert: val loss \textbf{0.000} from iter~1, accuracy 1.000, margin
+35.4~nats. Within-model preference data saturates the policy at
+initialization. Useful DPO needs pairs the policy hasn't already pre-learned to favor or disfavor.
 
-  \end{block}
+\section*{Takeaway}
+Small open-weights models move into a niche historical register cheaply
+when capacity (7B not 1.5B) and quantization (Q8 not Q4) are right. The
+bottleneck is the \emph{teacher signal}, not the optimization recipe.
 
-  \begin{block}{Eval prompts (held out)}
+\end{multicols}
 
-    \small
-    \begin{enumerate}
-      \item What is the nature of evil?
-      \item Is faith reasonable?
-      \item What is the relationship between grace and free will?
-      \item How does the soul relate to the body?
-      \item Why does God permit suffering?
-      \item Can a human truly know God?
-      \item What does it mean to love one's neighbor?
-      \item Is there such a thing as natural law?
-      \item How do you reconcile divine foreknowledge with free will?
-      \item What is the meaning of human life?
-    \end{enumerate}
-    \normalsize
-    None of these appear in the 93 teacher-generated training pairs.
-
-  \end{block}
-
-  \vfill
-
-\end{column}
-
-\separatorcolumn
-
-% --------------------------------------------------------------------
-% RIGHT COLUMN
-% --------------------------------------------------------------------
-\begin{column}{\colwidth}
-
-  \begin{block}{Results: rubric scores}
-
-    \begin{figure}
-      \centering
-      \input{figures/rubric-bars}
-    \end{figure}
-
-    \vspace{0.5em}
-
-    Four-dimension rubric (0--3 each, total 0--12 per prompt) summed
-    across 10 held-out philosophical questions ($N=10$, max 120). Largest
-    deltas: \textbf{scholastic register +17, CCC grounding +19,
-    structure +10}.
-
-  \end{block}
-
-  \begin{block}{Qualitative example}
-
-    \footnotesize
-    \textbf{Q.} How do you reconcile divine foreknowledge with free will?
-
-    \vspace{0.4em}
-
-    \textbf{BASE (Qwen 2.5 7B-Instruct):}
-    \emph{``The reconciliation of divine foreknowledge with free will is
-    a classic philosophical and theological problem that has been debated
-    for centuries. This issue arises from the apparent tension between
-    the idea that a divine being has perfect knowledge of all future
-    events\dots''}
-
-    \vspace{0.6em}
-
-    \textbf{SFT (Qwen 2.5 7B + LoRA on 83 scholastic pairs):}
-    \emph{``This is perhaps the most ancient and most pressing question
-    in all of metaphysics, and it is one that the Angelic Doctor
-    addresses with great precision.}
-
-    \emph{\textbf{Objection 1.} It would seem that divine foreknowledge
-    destroys free will, for if God knows\dots''}
-
-    \normalsize
-  \end{block}
-
-  \begin{alertblock}{Takeaway}
-
-    Small open-weights models can be moved into a niche historical
-    register cheaply when capacity is sufficient (7B not 1.5B) and
-    quantization is gentle (Q8 not Q4). The bottleneck is not the
-    optimization recipe but the \emph{teacher signal}: a stronger model
-    generating tightly-prompted training pairs.
-
-  \end{alertblock}
-
-  \begin{block}{Phase 2: scaling \& voice rebalancing}
-
-    Phase 2 scales to 377 training pairs ($\sim$4$\times$ Phase 1) with
-    per-source register hints (Aquinas form for \emph{Summa}/CCC chunks,
-    Augustinian for \emph{Confessions}/\emph{City of God}), 800 SFT
-    iterations. Best checkpoint: \textbf{iter 400} (mild overfitting
-    after).
-
-    \vspace{0.5em}
-
-    \textbf{Augustinian gap closed:} \texttt{aug} dim 3 $\to$ 7--13. The
-    model now switches register per prompt rather than forcing every
-    answer into Summa form.
-
-    \vspace{0.5em}
-
-    \textbf{Strict rubric undervalues this} (penalizes Augustinian
-    answers on \texttt{scholastic\_register}). We add a
-    \texttt{register\_fluency = max(reg, aug)} metric and a
-    \emph{balanced total}; under it, Phase 2 reaches
-    \textbf{68/90 vs Phase 1's 66/90.}
-
-  \end{block}
-
-  \begin{block}{Negative result: DPO saturation}
-
-    The Phase 2 DPO chain (chosen = SFT-v2 output, rejected = base
-    output) was inert. From iteration 1: val loss \textbf{0.000}, val
-    accuracy \textbf{1.000}, chosen/rejected margin
-    \textbf{35.4 nats}. The SFT policy already separated chosen from
-    rejected with overwhelming margin, so DPO had no gradient signal.
-
-    \vspace{0.5em}
-
-    \emph{Lesson.} Within-model preference data is degenerate: when
-    the policy generated chosen and the base generated rejected, the
-    DPO objective is satisfied at initialization. Useful DPO signal
-    requires preference pairs the policy has not already pre-learned
-    to favor or disfavor.
-
-  \end{block}
-
-  \begin{block}{Resources}
-
-    \begin{minipage}{0.72\linewidth}
-      \begin{itemize}
-        \item \textbf{Repo:} \href{https://github.com/pleyva2004/scholastic-llm}{\nolinkurl{github.com/pleyva2004/scholastic-llm}}
-        \item \textbf{Paper:} \href{https://pleyva2004.github.io/scholastic-llm/main.pdf}{\nolinkurl{pleyva2004.github.io/scholastic-llm/main.pdf}}
-        \item \textbf{License:} code MIT; trained adapter not redistributed
-        \item \emph{Research experiment, not theological authority.}
-      \end{itemize}
-    \end{minipage}%
-    \begin{minipage}{0.28\linewidth}
-      \centering
-      \qrcode[height=3.5cm]{https://github.com/pleyva2004/scholastic-llm}
-
-      \vspace{0.8em}
-      \small scan for repo
-    \end{minipage}
-
-  \end{block}
-
-  \vfill
-
-\end{column}
-
-\separatorcolumn
-\end{columns}
-\end{frame}
+% ---------------------------------------------------------------------------
+% Footer band
+% ---------------------------------------------------------------------------
+\vspace{-0.3em}
+\noindent\textcolor{accent!40}{\rule{\linewidth}{0.6pt}}\\[0.3em]
+\noindent\begin{minipage}[c]{0.78\linewidth}
+  \footnotesize
+  \textbf{Repo:} \href{https://github.com/pleyva2004/scholastic-llm}{github.com/pleyva2004/scholastic-llm}\quad
+  \textbf{Paper:} \href{https://pleyva2004.github.io/scholastic-llm/main.pdf}{pleyva2004.github.io/scholastic-llm/main.pdf}\\
+  \textbf{License:} code MIT; trained adapter not redistributed (see \texttt{DATA\_LICENSING.md}).\\
+  \emph{Research experiment, not theological authority. Outputs must not be cited as catechetical instruction.}\\
+  \textbf{Contact:} \href{mailto:pleyva2004@gmail.com}{pleyva2004@gmail.com}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.18\linewidth}
+  \centering
+  \qrcode[height=1.7cm]{https://github.com/pleyva2004/scholastic-llm}\\[2pt]
+  \footnotesize scan for repo
+\end{minipage}
 
 \end{document}

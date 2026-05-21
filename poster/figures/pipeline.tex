@@ -1,30 +1,26 @@
-% Poster-native pipeline figure (NOT the paper version — designed at
-% poster column widths so the natural box sizing matches the column;
-% no \resizebox needed, which avoids the wrap-distortion bug.)
 \begin{tikzpicture}[
     >=Stealth,
     box/.style={
       rectangle,
-      rounded corners=8pt,
-      draw=black!55,
-      line width=1.5pt,
-      fill=blue!5,
-      minimum height=5.4cm,
-      minimum width=6.2cm,
+      rounded corners=3pt,
+      draw=black!60,
+      fill=blue!4,
+      minimum height=1.45cm,
+      minimum width=2.7cm,
       align=center,
-      inner sep=10pt,
-      text width=5.8cm,
-      font=\normalsize
+      inner sep=4pt,
+      text width=2.5cm,
+      font=\small
     },
-    arrow/.style={->, thick, draw=black!55, shorten <=4pt, shorten >=4pt, line width=2pt},
-    node distance=0.7cm
+    arrow/.style={->, thick, draw=black!60, shorten <=1pt, shorten >=1pt},
+    node distance=0.4cm
   ]
 
-  \node[box] (sources) {\textbf{\large Primary sources}\\[6pt] CCC \\ \emph{Summa} \\ Augustine};
-  \node[box, right=of sources] (scrape)  {\textbf{\large Scrape}\\[6pt] Rate-limited \\ HTTP + cache};
-  \node[box, right=of scrape]  (clean)   {\textbf{\large Clean}\\[6pt] HTML\,$\to$ \\ JSONL chunks};
-  \node[box, right=of clean]   (gen)     {\textbf{\large Distill}\\[6pt] Claude Sonnet \\ 4.6 teacher};
-  \node[box, right=of gen]     (sft)     {\textbf{\large SFT}\\[6pt] Qwen 2.5\,7B \\ LoRA, MLX Q8};
+  \node[box] (sources) {\textbf{Primary sources}\\[2pt]\footnotesize CCC, \emph{Summa},\\ Augustine};
+  \node[box, right=of sources] (scrape)  {\textbf{Scrape}\\[2pt]\footnotesize Rate-limited\\ HTTP + cache};
+  \node[box, right=of scrape]  (clean)   {\textbf{Clean}\\[2pt]\footnotesize HTML\,$\to$\,JSONL\\ chunks};
+  \node[box, right=of clean]   (gen)     {\textbf{Distill}\\[2pt]\footnotesize Claude Sonnet\\ 4.6 teacher};
+  \node[box, right=of gen]     (sft)     {\textbf{SFT}\\[2pt]\footnotesize Qwen 2.5\,7B\\ LoRA, MLX Q8};
 
   \draw[arrow] (sources) -- (scrape);
   \draw[arrow] (scrape)  -- (clean);
