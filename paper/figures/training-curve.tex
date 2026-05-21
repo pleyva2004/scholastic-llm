@@ -50,9 +50,10 @@
   \addlegendentry{Val loss (measured)}
 
   % value labels next to the val markers so they're self-explanatory
-  \node[anchor=south, font=\footnotesize, color=red!50!black]
+  % (yshift pushes labels away from markers for breathing room)
+  \node[anchor=south, font=\footnotesize, color=red!50!black, yshift=6pt]
     at (axis cs:1,2.542) {2.54};
-  \node[anchor=south, font=\footnotesize, color=red!50!black]
+  \node[anchor=south, font=\footnotesize, color=red!50!black, yshift=6pt]
     at (axis cs:200,1.721) {1.72};
 
 \end{axis}
