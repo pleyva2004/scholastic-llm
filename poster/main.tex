@@ -87,16 +87,10 @@ fair-use sources?
 \begin{center}
 \resizebox{0.95\linewidth}{!}{\input{figures/pipeline}}
 \end{center}
-\vspace{-0.6em}
-\begin{itemize}
-  \item Scrape CCC (vatican.va), Summa, Augustine (newadvent.org) with
-        rate-limiting and on-disk cache.
-  \item Clean into 342 structured JSONL chunks.
-  \item Claude Sonnet 4.6 as \emph{teacher}: per chunk, 2--3
-        (question, scholastic-answer) pairs with explicit register and
-        CCC-citation instructions. 93 pairs, $\approx\$0.50$.
-  \item Supervised fine-tune Qwen 2.5\,7B-Instruct (MLX Q8) with LoRA.
-\end{itemize}
+\vspace{-0.4em}
+\noindent Scrape CCC + Summa + Augustine; clean to 342 JSONL chunks;
+use Claude Sonnet 4.6 as \emph{teacher} to write 93 scholastic Q\&A
+pairs ($\approx\$0.50$); SFT with LoRA.
 
 \section*{Training setup}
 \begin{itemize}
@@ -108,7 +102,6 @@ fair-use sources?
   \item Peak memory 12.7\,GB; trainable params 2.6M / 7.6B (0.034\,\%)
 \end{itemize}
 
-\vspace*{\stretch{1}}
 \columnbreak
 
 \section*{Results}
@@ -145,10 +138,10 @@ DPO chain (chosen $=$ SFT output, rejected $=$ base) was \emph{inert}:
 val loss 0.000 from iter~1, accuracy 1.000, margin 35.4~nats.
 Within-model preference data saturates the policy at initialization.
 
-\section*{Takeaway}
-Small open-weights models move into a niche historical register cheaply
-when capacity (7B not 1.5B) and quantization (Q8 not Q4) are right.
-The bottleneck is the \emph{teacher signal}, not the optimization recipe.
+\smallskip\noindent\textbf{Takeaway.} Small open-weights models move into a
+niche historical register cheaply when capacity (7B not 1.5B) and
+quantization (Q8 not Q4) are right. The bottleneck is the \emph{teacher
+signal}, not the optimization recipe.
 
 \end{multicols}
 
