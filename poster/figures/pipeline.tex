@@ -1,0 +1,30 @@
+\begin{tikzpicture}[
+    >=Stealth,
+    box/.style={
+      rectangle,
+      rounded corners=3pt,
+      draw=black!60,
+      fill=blue!4,
+      minimum height=1.45cm,
+      minimum width=2.7cm,
+      align=center,
+      inner sep=4pt,
+      text width=2.5cm,
+      font=\small
+    },
+    arrow/.style={->, thick, draw=black!60, shorten <=1pt, shorten >=1pt},
+    node distance=0.4cm
+  ]
+
+  \node[box] (sources) {\textbf{Primary sources}\\[2pt]\footnotesize CCC, \emph{Summa},\\ Augustine};
+  \node[box, right=of sources] (scrape)  {\textbf{Scrape}\\[2pt]\footnotesize Rate-limited\\ HTTP + cache};
+  \node[box, right=of scrape]  (clean)   {\textbf{Clean}\\[2pt]\footnotesize HTML\,$\to$\,JSONL\\ chunks};
+  \node[box, right=of clean]   (gen)     {\textbf{Distill}\\[2pt]\footnotesize Claude Sonnet\\ 4.6 teacher};
+  \node[box, right=of gen]     (sft)     {\textbf{SFT}\\[2pt]\footnotesize Qwen 2.5\,7B\\ LoRA, MLX Q8};
+
+  \draw[arrow] (sources) -- (scrape);
+  \draw[arrow] (scrape)  -- (clean);
+  \draw[arrow] (clean)   -- (gen);
+  \draw[arrow] (gen)     -- (sft);
+
+\end{tikzpicture}
