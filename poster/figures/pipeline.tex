@@ -1,3 +1,5 @@
+% Vertical pipeline figure for the one-pager (was horizontal).
+% 5 stages stacked top-to-bottom; arrows point down.
 \begin{tikzpicture}[
     >=Stealth,
     box/.style={
@@ -5,22 +7,22 @@
       rounded corners=3pt,
       draw=black!60,
       fill=blue!4,
-      minimum height=1.45cm,
-      minimum width=2.7cm,
+      minimum height=1.05cm,
+      minimum width=5.0cm,
       align=center,
       inner sep=4pt,
-      text width=2.5cm,
+      text width=4.7cm,
       font=\small
     },
-    arrow/.style={->, thick, draw=black!60, shorten <=1pt, shorten >=1pt},
-    node distance=0.4cm
+    arrow/.style={->, thick, draw=black!60, shorten <=2pt, shorten >=2pt, line width=0.8pt},
+    node distance=0.35cm
   ]
 
-  \node[box] (sources) {\textbf{Primary sources}\\[2pt]\footnotesize CCC, \emph{Summa},\\ Augustine};
-  \node[box, right=of sources] (scrape)  {\textbf{Scrape}\\[2pt]\footnotesize Rate-limited\\ HTTP + cache};
-  \node[box, right=of scrape]  (clean)   {\textbf{Clean}\\[2pt]\footnotesize HTML\,$\to$\,JSONL\\ chunks};
-  \node[box, right=of clean]   (gen)     {\textbf{Distill}\\[2pt]\footnotesize Claude Sonnet\\ 4.6 teacher};
-  \node[box, right=of gen]     (sft)     {\textbf{SFT}\\[2pt]\footnotesize Qwen 2.5\,7B\\ LoRA, MLX Q8};
+  \node[box] (sources) {\textbf{Primary sources}\\[1pt]\footnotesize CCC, \emph{Summa}, Augustine};
+  \node[box, below=of sources] (scrape)  {\textbf{Scrape}\\[1pt]\footnotesize Rate-limited HTTP + on-disk cache};
+  \node[box, below=of scrape]  (clean)   {\textbf{Clean}\\[1pt]\footnotesize HTML\,$\to$\,structured JSONL chunks};
+  \node[box, below=of clean]   (gen)     {\textbf{Distill}\\[1pt]\footnotesize Claude Sonnet 4.6 as teacher};
+  \node[box, below=of gen]     (sft)     {\textbf{SFT}\\[1pt]\footnotesize Qwen 2.5\,7B, LoRA, MLX Q8};
 
   \draw[arrow] (sources) -- (scrape);
   \draw[arrow] (scrape)  -- (clean);
