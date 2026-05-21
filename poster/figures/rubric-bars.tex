@@ -1,23 +1,34 @@
-% Poster-native rubric bar chart. Designed at poster column scale so the
-% figure renders large without \resizebox distortion.
+% Poster-native rubric bar chart. Wider bars, tighter category spacing,
+% legend out of the bar area, taller y-axis labels.
 \begin{tikzpicture}
 \begin{axis}[
-    width=0.95\linewidth,
-    height=18cm,
+    width=0.98\linewidth,
+    height=14cm,
     ybar,
-    bar width=28pt,
-    ymin=0, ymax=80,
-    enlarge x limits=0.14,
+    bar width=42pt,
+    ymin=0, ymax=82,
+    enlarge x limits=0.10,
     ylabel={Rubric score (summed over 10 prompts)},
     symbolic x coords={Schol.\ register, Augustinian\ voice, CCC\ grounding, Structure, Total},
     xtick=data,
-    x tick label style={font=\normalsize, rotate=15, anchor=east, xshift=2pt},
-    tick label style={font=\normalsize},
-    label style={font=\large},
+    x tick label style={font=\normalsize, rotate=18, anchor=east, yshift=-2pt},
+    y tick label style={font=\normalsize},
+    ylabel style={font=\large},
     nodes near coords,
-    nodes near coords style={font=\small, anchor=south, yshift=2pt},
-    legend pos=north west,
-    legend style={font=\large,fill=white,fill opacity=0.9,text opacity=1,draw=black!40, row sep=2pt, inner sep=6pt},
+    nodes near coords style={font=\normalsize, anchor=south, yshift=2pt},
+    legend image code/.code={
+      \draw [#1] (0cm,-0.15cm) rectangle (0.45cm,0.15cm);
+    },
+    legend style={
+      at={(0.5,1.02)},
+      anchor=south,
+      legend columns=-1,
+      font=\large,
+      fill=white,
+      draw=black!35,
+      column sep=1.2em,
+      inner sep=6pt,
+    },
     grid=major,
     grid style={dashed,gray!25},
     every axis plot/.append style={line width=1pt},
