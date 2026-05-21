@@ -21,6 +21,27 @@ and **Augustine (Confessions, City of God)**.
 
 **[View the poster](https://pleyva2004.github.io/scholastic-llm/poster.pdf)** — A0 portrait conference poster, auto-rendered on every push.
 
+## Models on Hugging Face
+
+Four MLX LoRA adapters for `Qwen/Qwen2.5-7B-Instruct`, each in its own Hub repo with a model card cross-linking the rest:
+
+| Variant | Role | Strict (max 120) | Balanced (max 90) | Hub |
+|---|---|---:|---:|---|
+| `sft-v1` | Phase 1 paper headline | 68 | 66 | [`pleyva2004/scholastic-llm-sft-v1`](https://huggingface.co/pleyva2004/scholastic-llm-sft-v1) |
+| `sft-v2-iter400` ⭐ | Best Phase 2 checkpoint | 68 | **68** | [`pleyva2004/scholastic-llm-sft-v2-iter400`](https://huggingface.co/pleyva2004/scholastic-llm-sft-v2-iter400) |
+| `sft-v2` | Phase 2 final (iter 800, mild overfit) | 64 | 64 | [`pleyva2004/scholastic-llm-sft-v2`](https://huggingface.co/pleyva2004/scholastic-llm-sft-v2) |
+| `dpo-v3` | Negative result (DPO saturation) | 64 | 63 | [`pleyva2004/scholastic-llm-dpo-v3`](https://huggingface.co/pleyva2004/scholastic-llm-dpo-v3) |
+
+Load any of them with `mlx_lm`:
+
+```python
+from mlx_lm import generate, load
+model, tok = load(
+    "Qwen/Qwen2.5-7B-Instruct",
+    adapter_path="pleyva2004/scholastic-llm-sft-v2-iter400",
+)
+```
+
 This is an experimental personal project. See `DATA_LICENSING.md` for the
 status of source texts used during training.
 
