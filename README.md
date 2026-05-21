@@ -19,6 +19,8 @@ and **Augustine (Confessions, City of God)**.
 
 **[Read the paper](https://pleyva2004.github.io/scholastic-llm/main.pdf)** — single-column arXiv-style preprint, auto-rendered on every push.
 
+**[View the poster](https://pleyva2004.github.io/scholastic-llm/poster.pdf)** — A0 portrait conference poster, auto-rendered on every push.
+
 This is an experimental personal project. See `DATA_LICENSING.md` for the
 status of source texts used during training.
 
