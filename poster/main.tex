@@ -119,6 +119,28 @@
 
   \end{block}
 
+  \begin{block}{Eval prompts (held out)}
+
+    \small
+    \begin{enumerate}
+      \item What is the nature of evil?
+      \item Is faith reasonable?
+      \item What is the relationship between grace and free will?
+      \item How does the soul relate to the body?
+      \item Why does God permit suffering?
+      \item Can a human truly know God?
+      \item What does it mean to love one's neighbor?
+      \item Is there such a thing as natural law?
+      \item How do you reconcile divine foreknowledge with free will?
+      \item What is the meaning of human life?
+    \end{enumerate}
+    \normalsize
+    None of these appear in the 93 teacher-generated training pairs.
+
+  \end{block}
+
+  \vfill
+
 \end{column}
 
 \separatorcolumn
@@ -132,7 +154,7 @@
 
     \begin{figure}
       \centering
-      \resizebox{\linewidth}{!}{\input{figures/rubric-bars}}
+      \input{figures/rubric-bars}
     \end{figure}
 
     \vspace{0.5em}
@@ -181,12 +203,45 @@
 
   \end{alertblock}
 
-  \begin{block}{Phase 2 (in progress)}
+  \begin{block}{Phase 2: scaling \& voice rebalancing}
 
-    Scaling to $\approx$\,300 training pairs with per-source style
-    biasing (Aquinas form for systematic prompts, Augustinian form for
-    existential ones), 800 SFT iterations, followed by a DPO refinement
-    chain. Per-dimension trade-offs under analysis.
+    Phase 2 scales to 377 training pairs ($\sim$4$\times$ Phase 1) with
+    per-source register hints (Aquinas form for \emph{Summa}/CCC chunks,
+    Augustinian for \emph{Confessions}/\emph{City of God}), 800 SFT
+    iterations. Best checkpoint: \textbf{iter 400} (mild overfitting
+    after).
+
+    \vspace{0.5em}
+
+    \textbf{Augustinian gap closed:} \texttt{aug} dim 3 $\to$ 7--13. The
+    model now switches register per prompt rather than forcing every
+    answer into Summa form.
+
+    \vspace{0.5em}
+
+    \textbf{Strict rubric undervalues this} (penalizes Augustinian
+    answers on \texttt{scholastic\_register}). We add a
+    \texttt{register\_fluency = max(reg, aug)} metric and a
+    \emph{balanced total}; under it, Phase 2 reaches
+    \textbf{68/90 vs Phase 1's 66/90.}
+
+  \end{block}
+
+  \begin{block}{Negative result: DPO saturation}
+
+    The Phase 2 DPO chain (chosen = SFT-v2 output, rejected = base
+    output) was inert. From iteration 1: val loss \textbf{0.000}, val
+    accuracy \textbf{1.000}, chosen/rejected margin
+    \textbf{35.4 nats}. The SFT policy already separated chosen from
+    rejected with overwhelming margin, so DPO had no gradient signal.
+
+    \vspace{0.5em}
+
+    \emph{Lesson.} Within-model preference data is degenerate: when
+    the policy generated chosen and the base generated rejected, the
+    DPO objective is satisfied at initialization. Useful DPO signal
+    requires preference pairs the policy has not already pre-learned
+    to favor or disfavor.
 
   \end{block}
 
@@ -209,6 +264,8 @@
     \end{minipage}
 
   \end{block}
+
+  \vfill
 
 \end{column}
 
