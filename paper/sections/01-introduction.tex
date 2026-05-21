@@ -5,7 +5,7 @@ fluent, encyclopedic prose that is appropriate to a generic helpful-assistant
 persona. This is exactly what most product use cases reward, and exactly
 what makes them unsatisfying for tasks that demand a specific historical
 register. Aquinas's \emph{Summa Theologica} is recognizable not only by its
-theological commitments but by its surface form -- the \emph{quaestio}, the
+theological commitments but by its surface form, the \emph{quaestio}, the
 ``It seems that,'' the explicit numbered objections, the ``On the contrary,
 \dots,'' the ``I answer that, \dots,'' followed by replies to each
 objection. Augustine writes confessionally, addressing God in the second
@@ -16,8 +16,8 @@ foundation model trained on the modern web can repeat propositions from
 these documents but rarely \emph{sounds} like them when prompted to speak in
 their voice.
 
-This paper asks a narrow question: can a small open-weights model -- on the
-order of 7B parameters -- be moved into the scholastic register cheaply, on
+This paper asks a narrow question: can a small open-weights model (on the
+order of 7B parameters) be moved into the scholastic register cheaply, on
 a single laptop, using only public-domain or fair-use source texts and a
 small teacher-distillation budget?
 
@@ -34,8 +34,8 @@ the strongest gains in scholastic register and CCC paragraph grounding.
 We also report what did \emph{not} work earlier in this project, since the
 contrast motivated the recipe above. Preference-optimization experiments
 (DPO, ORPO) on a smaller (Qwen 2.5\,1.5B, 4-bit) base model produced
-seemingly excellent validation metrics -- DPO converged to 1.0 accuracy
-with a 7.5-nat margin -- while generations were nearly byte-identical to the
+seemingly excellent validation metrics (DPO converged to 1.0 accuracy
+with a 7.5-nat margin), while generations were nearly byte-identical to the
 base. This is the classic asymmetric-reward DPO failure mode
 \cite{rafailov2023dpo}: the model learns to push the rejected response down
 without pulling the chosen response up. Capacity (1.5B) and aggressive

@@ -7,9 +7,9 @@
 Before arriving at the Phase~1 recipe reported here, this project ran
 preference-optimization experiments on Qwen~2.5\,1.5B at 4-bit
 quantization. Both DPO \cite{rafailov2023dpo} and ORPO \cite{orpo}
-produced apparently strong validation signals -- DPO converged to
+produced apparently strong validation signals (DPO converged to
 1.0 accuracy with a 7.5-nat margin between chosen and rejected
-responses -- while generations from the trained adapters were nearly
+responses), while generations from the trained adapters were nearly
 byte-identical to the base for most prompts. For ORPO, generations for
 three of four spot-checked prompts were \emph{literally} byte-identical
 to base.
@@ -41,8 +41,8 @@ problem in our 1.5B 4-bit setting:
 The Phase~1 recipe deliberately addressed all three: a larger base
 (7B), a gentler quantization (Q8), and SFT as the first training step.
 We do not claim that DPO is generally inferior to SFT for register
-transfer; we claim that for our setting -- small handcrafted corpus,
-small open-weights base, on-device training -- starting with SFT was
+transfer; we claim that for our setting (small handcrafted corpus,
+small open-weights base, on-device training) starting with SFT was
 the right call, and a useful negative result for practitioners
 considering preference optimization with similar constraints.
 
