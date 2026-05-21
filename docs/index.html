@@ -58,8 +58,11 @@
       color: var(--accent);
     }
     .cta:hover { opacity: 0.85; }
+    /* All inline links use the accent color, matching the buttons and rest of the page */
+    a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { opacity: 0.7; }
     .links { font-size: 0.95rem; }
-    .links a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+    .links a { text-decoration: none; border-bottom: 1px dotted var(--accent); }
     hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
     code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: rgba(0,0,0,0.05); padding: 0.1em 0.3em; border-radius: 3px; }
     @media (prefers-color-scheme: dark) { code { background: rgba(255,255,255,0.07); } }
