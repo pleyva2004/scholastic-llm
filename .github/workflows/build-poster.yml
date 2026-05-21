@@ -26,7 +26,9 @@ jobs:
         with:
           working_directory: poster
           root_file: main.tex
-          latexmk_use_lualatex: false
+          # Gemini beamerposter theme pulls in fontspec, which requires
+          # XeLaTeX or LuaLaTeX (NOT pdfLaTeX).
+          latexmk_use_lualatex: true
           latexmk_shell_escape: true
 
       - name: Upload PDF artifact
