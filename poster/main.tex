@@ -8,7 +8,7 @@
 \usepackage{lmodern}
 \usepackage[
   paper=a4paper,
-  top=1.2cm, bottom=4.2cm,
+  top=1.2cm, bottom=1.2cm,
   left=1.4cm, right=1.4cm,
   headsep=0.3cm
 ]{geometry}
@@ -146,29 +146,18 @@ signal}, not the optimization recipe.
 \end{multicols}
 
 % ---------------------------------------------------------------------------
-% Footer band — anchored absolutely to the bottom of page 1 via a
-% TikZ remember-picture overlay so the body can't push it onto page 2.
+% Compact single-band footer pushed to the bottom by \vfill
 % ---------------------------------------------------------------------------
-\begin{tikzpicture}[remember picture, overlay]
-\node[anchor=south, inner sep=0pt, yshift=1.0cm]
-  at (current page.south) {%
-  \begin{minipage}{\dimexpr\paperwidth-2.8cm\relax}
-    \textcolor{accent!40}{\rule{\linewidth}{0.6pt}}\\[0.3em]
-    \noindent\begin{minipage}[c]{0.78\linewidth}
-      \footnotesize
-      \textbf{Repo:} \href{https://github.com/pleyva2004/scholastic-llm}{github.com/pleyva2004/scholastic-llm}\quad
-      \textbf{Paper:} \href{https://pleyva2004.github.io/scholastic-llm/main.pdf}{pleyva2004.github.io/scholastic-llm/main.pdf}\\
-      \textbf{License:} code MIT; trained adapter not redistributed (see \texttt{DATA\_LICENSING.md}).\\
-      \emph{Research experiment, not theological authority. Outputs must not be cited as catechetical instruction.}\\
-      \textbf{Contact:} \href{mailto:pleyva2004@gmail.com}{pleyva2004@gmail.com}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.18\linewidth}
-      \centering
-      \qrcode[height=1.7cm]{https://github.com/pleyva2004/scholastic-llm}\\[2pt]
-      \footnotesize scan for repo
-    \end{minipage}
-  \end{minipage}
-};
-\end{tikzpicture}
+\vfill
+\noindent\textcolor{accent!40}{\rule{\linewidth}{0.6pt}}
+
+\vspace{0.15em}
+\noindent\footnotesize%
+\href{https://github.com/pleyva2004/scholastic-llm}{\textbf{Repo}}\,\textbar{}\,%
+\href{https://pleyva2004.github.io/scholastic-llm/main.pdf}{\textbf{Paper}}\,\textbar{}\,%
+\href{mailto:pleyva2004@gmail.com}{\textbf{Contact}}\quad
+\emph{Research experiment, not theological authority.}\quad
+MIT licensed code; trained adapter not redistributed.
+\normalsize
 
 \end{document}
