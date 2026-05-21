@@ -24,6 +24,19 @@ wandb/
 mlruns/
 outputs/
 
+# LaTeX build artifacts (the rendered PDF lives at docs/main.pdf)
+paper/main.pdf
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.synctex.gz
+paper/*.bbl
+paper/*.blg
+paper/_minted-*
+
 # Editor
 .vscode/
 .idea/
