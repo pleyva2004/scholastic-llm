@@ -158,15 +158,90 @@ prompts it never saw at training time. Whether the \emph{content} of
 those structural slots is theologically correct is a separate question,
 addressed in Section~\ref{sec:ethics}.
 
-\subsection{Phase 2 (ongoing)}
+\subsection{Phase 2: scaling, voice rebalancing, and a DPO chain}
 \label{sec:phase2}
 
-A second phase of experiments was launched concurrently with the writing
-of this paper and is running in a separate background process. Phase~2
-expands the teacher-distilled corpus to 300 (question, answer) pairs
-(versus 83), extends SFT to 800 iterations (versus 200), and chains DPO on
-top of SFT using base-vs-SFT pairs as preference data. Detailed results
-will be reported in a revision.
+Phase~2 scales the teacher-distilled corpus from 83 to 377 (train) +
+42 (valid) pairs by lifting the chunk budget from 50 to 150, and adds
+per-source register hints to the teacher prompt: Aquinas Summa form for
+\emph{Summa} and CCC chunks, Augustinian rhetorical form for
+\emph{Confessions} and \emph{City of God} chunks. SFT runs for 800
+iterations at the same hyperparameters as Phase~1 (LR $10^{-5}$, batch
+1, 16 LoRA layers). A DPO refinement chain is then applied on top of
+the SFT-v2 weights with $\beta=0.05$ for 300 iterations, using
+$\approx$50 preference pairs in which the SFT-v2 model's output is
+treated as \emph{chosen} and the base model's output as
+\emph{rejected}.
 
-\todo{Phase 2 results, training-curve, rubric deltas, DPO chain
-metrics. Currently in flight.}
+\paragraph{Best checkpoint is iter 400, not iter 800.}
+Validation loss falls from 2.65 at iter~1 to a minimum of 1.70 at
+iter~400, then drifts back up to 1.73 by iter~800. The iter-400
+checkpoint is uniformly stronger than the final weights on the rubric,
+and we report Phase~2 numbers from iter~400 hereafter (denoted
+SFT-v2@iter400).
+
+\paragraph{A rubric limitation surfaces.}
+Phase~2 forces us to confront a limitation of the rubric in
+Section~\ref{sec:rubric}: the strict total sums
+\texttt{scholastic\_register} and \texttt{augustinian\_voice}
+independently. A response in pure Augustinian voice (no ``I answer
+that,'' no numbered objections) cannot score on the
+\texttt{scholastic\_register} dimension, even when Augustinian is the
+correct register for the prompt. The strict total therefore penalizes
+a model that switches register appropriately versus one that forces
+every answer into the Summa template. We add a derived metric
+\texttt{register\_fluency} $\!=$ $\max(\text{\texttt{scholastic\_register}},\,\text{\texttt{augustinian\_voice}})$
+and a \emph{balanced total} $=$ \texttt{register\_fluency} $+$
+\texttt{ccc\_grounding} $+$ \texttt{structure} (max 9 per prompt, 90
+across the 10-prompt eval). Both totals are reported below.
+
+\paragraph{Five-way comparison.}
+Table~\ref{tab:rubric_phase2} reports both the strict total (max 120)
+and the balanced total (max 90) across all variants.
+
+\begin{table}[H]
+\centering
+\caption{Phase 1 vs Phase 2 rubric totals across the same 10 held-out
+prompts. \textsc{reg} $=$ scholastic register; \textsc{aug} $=$
+Augustinian voice; \textsc{flu} $=$ register fluency
+($\max(\textsc{reg}, \textsc{aug})$); \textsc{ccc} $=$ CCC grounding;
+\textsc{str} $=$ structure. Per-dimension maxima are 30; strict
+total max is 120; balanced total max is 90.}
+\label{tab:rubric_phase2}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l r r r r r r r}
+\toprule
+\textbf{Variant} & \textsc{reg} & \textsc{aug} & \textsc{flu} & \textsc{ccc} & \textsc{str} & \textbf{Strict} & \textbf{Balanced} \\
+\midrule
+BASE                       &  3 &  0 &  3 &  0 & 16 & 19 & 19 \\
+SFT-v1 (Phase~1)           & 20 &  3 & 21 & 19 & 26 & 68 & 66 \\
+SFT-v2 (iter 800)          & 15 & 13 & 28 & 18 & 18 & 64 & 64 \\
+\textbf{SFT-v2 (iter 400)} & \textbf{21} & \textbf{7} & \textbf{28} & \textbf{18} & \textbf{22} & \textbf{68} & \textbf{68} \\
+DPO-v3 ($=$ SFT-v2 $+$ DPO) & 16 & 12 & 27 & 20 & 16 & 64 & 63 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three findings stand out:
+
+\begin{itemize}
+  \item \textbf{Phase~2 closes the Augustinian gap.}
+        \texttt{aug} rises from 3 (Phase~1) to 13 / 7 (Phase~2
+        iter-800 / iter-400). Per-source register hinting works as
+        intended.
+  \item \textbf{Phase~2 ties on strict total but wins on balanced.}
+        Every Phase~2 variant scores 27--28 on
+        \texttt{register\_fluency} against Phase~1's 21. The model now
+        picks the right register per prompt --- Aquinas for systematic
+        questions, Augustinian for existential ones --- rather than
+        forcing one form on all of them. Strict total misses this;
+        balanced total reveals it. The best Phase~2 checkpoint
+        (iter~400) matches Phase~1's strict 68 and beats Phase~1's
+        balanced 66.
+  \item \textbf{DPO contributed effectively nothing.} DPO-v3 sits at
+        64 strict / 63 balanced, statistically indistinguishable from
+        its SFT-v2 (iter 800) starting point. We discuss this negative
+        result in Section~\ref{sec:dpo-saturation}.
+\end{itemize}

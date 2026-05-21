@@ -46,22 +46,67 @@ small open-weights base, on-device training) starting with SFT was
 the right call, and a useful negative result for practitioners
 considering preference optimization with similar constraints.
 
-\subsection{The Augustinian gap}
+\subsection{The Augustinian gap (and how Phase~2 closed it)}
 \label{sec:augustinian-gap}
 
 The most striking dimension-level failure in Table~\ref{tab:rubric} is
-\emph{Augustinian voice}, which moves from 0 to only 3 out of 30. The
-cause is a corpus imbalance: of the 342 source chunks, the Summa
-dominates by chunk count, and the Claude teacher's pair generator was
-more confident producing Summa-form outputs than Augustinian-form ones.
-The 83-pair training mix is consequently heavily Summa-weighted, and
-the model has not been shown enough Augustinian register to internalize
-its surface markers (second-person address to God, autobiographical
-framing, scriptural allusion).
+\emph{Augustinian voice}, which moves from 0 to only 3 out of 30 under
+Phase~1. The cause is a corpus imbalance: of the 342 source chunks,
+the Summa dominates by chunk count, and the Claude teacher's pair
+generator was more confident producing Summa-form outputs than
+Augustinian-form ones. The 83-pair Phase~1 training mix was
+consequently heavily Summa-weighted, and the model had not been shown
+enough Augustinian register to internalize its surface markers
+(second-person address to God, autobiographical framing, scriptural
+allusion).
 
-The Phase~2 plan addresses this by oversampling Confessions and City of
-God chunks during pair generation and by adding an explicit
-Augustinian-voice instruction variant in the teacher's system prompt.
+Phase~2 (Section~\ref{sec:phase2}) addresses this by per-source
+register hinting in the teacher prompt: chunks drawn from
+\emph{Confessions} or \emph{City of God} are flagged for Augustinian
+voice, chunks from the Summa or CCC are flagged for Aquinas form. The
+gap closes meaningfully: \texttt{aug} rises from 3 (Phase~1) to 7--13
+(Phase~2). What did \emph{not} happen is uniform improvement on all
+dimensions of the original strict rubric, because the model now
+genuinely \emph{switches register} per prompt rather than forcing every
+answer into one form. That switching is the desired behavior but
+penalized by the strict rubric, which is what motivated the balanced
+total we introduce in Section~\ref{sec:phase2}.
+
+\subsection{DPO saturation when chosen/rejected come from the same model family}
+\label{sec:dpo-saturation}
+
+Phase~2's DPO refinement chain was a controlled negative result. We
+generated preference pairs by sampling, for each of $\approx$50
+held-out questions, both an SFT-v2 output (treated as \emph{chosen})
+and a base-model output (treated as \emph{rejected}), then trained DPO
+with $\beta=0.05$ for 300 iterations.
+
+The training metrics were striking and unhelpful: from iteration~1
+onward, validation loss reads $0.000$, validation accuracy reads
+$1.000$, and the chosen/rejected logit margin sits at $35.4$ nats.
+Effectively, the SFT-v2 policy already separated chosen and rejected
+with such overwhelming margin that DPO had no learning signal to act
+on. The gradient through the DPO loss is negligible across the entire
+run, and the resulting adapter is functionally indistinguishable from
+its SFT-v2 initialization (Table~\ref{tab:rubric_phase2}: 64 vs 64
+strict, 63 vs 64 balanced).
+
+The lesson is a setup pitfall rather than a fault of DPO itself.
+\emph{Within-model preference data is degenerate}: when the SFT-trained
+policy itself generated the chosen completions and the untrained base
+generated the rejected ones, the policy already assigns near-extreme
+probability ratios to its own outputs versus base outputs. The DPO
+objective is satisfied at initialization. Useful DPO signal requires
+either (a)~preference pairs sampled from distributions the policy has
+\emph{not} already learned to favor or disfavor (e.g.\ from a different
+model family, from human raters, or from multiple stochastic samples
+of the same policy at temperature~$>$~0), or (b)~preference
+optimization \emph{before} aggressive SFT.
+
+Practitioners chaining SFT into DPO with model-generated pairs should
+treat near-zero starting val loss and 1.0 starting val accuracy as a
+red flag that the pipeline will be inert, not as confirmation that
+DPO is converging.
 
 \subsection{Ethics}
 \label{sec:ethics}
