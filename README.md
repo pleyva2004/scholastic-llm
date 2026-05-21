@@ -1,0 +1,102 @@
+# scholastic-llm
+
+Fine-tuning Qwen 2.5 7B-Instruct on Apple Silicon (MLX) to debate philosophy in
+a **scholastic, Latin-inflected register**, grounded in the **Catechism of the
+Catholic Church**, in the structural voices of **Aquinas (Summa Theologica)**
+and **Augustine (Confessions, City of God)**.
+
+This is an experimental personal project. See `DATA_LICENSING.md` for the
+status of source texts used during training.
+
+## Status
+
+🚧 In active development. Phase 1 (end-to-end smoke test) in progress.
+
+## Approach
+
+1. **Scrape** primary sources (CCC, Summa, Confessions, City of God) into a
+   structured corpus.
+2. **Reformat** corpus chunks into instruction pairs using the **Claude API**
+   as a teacher model — questions paired with scholastic answers that cite
+   CCC paragraphs and argue in Summa- or Augustinian-style.
+3. **SFT** (LoRA fine-tune) Qwen 2.5 7B-Instruct (MLX Q8) on the pairs.
+4. **Evaluate** with a rubric scoring scholastic register, CCC grounding,
+   Augustinian rhetorical moves, and argument structure.
+5. **(Optional) DPO** refinement against bland base-model outputs.
+
+## Requirements
+
+- macOS with Apple Silicon (tested on M4 Pro, 48GB unified memory)
+- Python 3.12
+- [`uv`](https://github.com/astral-sh/uv) for environment management
+- Anthropic API key (for training-data generation step)
+- ~30 GB free disk (7B Q8 weights + training data + adapters)
+
+## Setup
+
+```bash
+git clone <repo-url> scholastic-llm
+cd scholastic-llm
+
+uv venv --python 3.12
+source .venv/bin/activate
+uv pip install -e .
+
+cp .env.example .env
+# Edit .env and set ANTHROPIC_API_KEY
+```
+
+## Usage
+
+```bash
+# 1. Scrape primary sources (rate-limited, cached)
+python scripts/scrape_sources.py --phase 1
+
+# 2. Clean and structure scraped HTML
+python scripts/clean_corpus.py
+
+# 3. Generate training pairs via Claude API
+python scripts/generate_training_pairs.py --max-calls 200
+
+# 4. Convert Qwen 2.5 7B-Instruct to MLX Q8
+mlx_lm.convert --hf-path Qwen/Qwen2.5-7B-Instruct \
+    --mlx-path models/qwen2.5-7b-mlx-q8 -q --q-bits 8
+
+# 5. Run SFT (LoRA)
+mlx_lm_lora.train --model models/qwen2.5-7b-mlx-q8 \
+    --train --train-mode sft --data data/ \
+    --batch-size 1 --num-layers 16 --iters 200 \
+    --learning-rate 1e-5 \
+    --adapter-path adapters/scholastic-v1
+
+# 6. Evaluate
+python notebooks/02_eval.py
+```
+
+Each notebook in `notebooks/` is a `.py` file with `# %%` cell markers that
+opens as an interactive notebook in VSCode/Cursor.
+
+## Layout
+
+```
+notebooks/   end-to-end pipeline notebooks (SFT, eval, optional DPO)
+scripts/     reusable CLI helpers (scrape, clean, generate)
+src/scholastic/   importable code (chat helper, rubric)
+data/        scraped + processed datasets (gitignored)
+models/      MLX-converted base models (gitignored)
+adapters/    LoRA checkpoints (gitignored)
+```
+
+## Ethical note
+
+This project trains a small open-weights LLM to speak in the voice of historical
+theologians. The model is not an authoritative source on Catholic doctrine, the
+Bible, or philosophy — it is a stylistic and pedagogical experiment. Outputs
+should not be cited or relied upon as catechetical or theological instruction.
+For doctrinal questions, consult the actual Catechism, a qualified priest, or a
+theologian.
+
+## License
+
+Source code: MIT (see `LICENSE`).
+Source data: see `DATA_LICENSING.md` for per-source terms.

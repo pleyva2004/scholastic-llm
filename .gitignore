@@ -1,0 +1,30 @@
+.venv/
+.python-version
+__pycache__/
+*.pyc
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
+
+# Secrets — never commit
+.env
+
+# Local artifacts (not redistributed; see DATA_LICENSING.md)
+models/
+adapters/*/
+!adapters/.gitkeep
+data/sources/
+data/processed/
+data/*.jsonl
+!data/README.md
+!data/.gitkeep
+
+# Experiment tracking
+wandb/
+mlruns/
+outputs/
+
+# Editor
+.vscode/
+.idea/
+*.swp

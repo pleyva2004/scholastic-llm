@@ -1,0 +1,11 @@
+# For non-uv users. Prefer `uv pip install -e .` which reads pyproject.toml.
+mlx-lm
+mlx-lm-lora
+anthropic
+beautifulsoup4
+lxml
+requests
+python-dotenv
+datasets
+jupyterlab
+ipykernel
