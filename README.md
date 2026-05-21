@@ -5,6 +5,18 @@ a **scholastic, Latin-inflected register**, grounded in the **Catechism of the
 Catholic Church**, in the structural voices of **Aquinas (Summa Theologica)**
 and **Augustine (Confessions, City of God)**.
 
+> **⚠ NOTICE — research experiment, not theological authority**
+>
+> This is a personal portfolio / research project exploring how small
+> open-weights LLMs can be fine-tuned to adopt a specific historical register
+> and citation style. The trained model is **not** a reliable source of
+> Catholic doctrine, biblical interpretation, or philosophical truth. It can
+> hallucinate citations, misrepresent the Catechism, and confidently err.
+> Outputs must not be cited as catechetical instruction, theological argument,
+> or spiritual direction. For doctrinal questions, consult the actual
+> Catechism of the Catholic Church, a qualified priest, or a trained
+> theologian.
+
 This is an experimental personal project. See `DATA_LICENSING.md` for the
 status of source texts used during training.
 

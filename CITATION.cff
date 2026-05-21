@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: scholastic-llm
+abstract: >-
+  Fine-tuning Qwen 2.5 7B-Instruct on Apple Silicon (MLX) to debate philosophy
+  in a scholastic, Latin-inflected register, grounded in the Catechism of the
+  Catholic Church, in the structural voices of Aquinas and Augustine.
+authors:
+  - given-names: Pablo
+    family-names: Leyva
+repository-code: "https://github.com/pleyva2004/scholastic-llm"
+license: MIT
+date-released: 2026-05-20
