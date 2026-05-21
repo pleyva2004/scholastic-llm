@@ -2,15 +2,15 @@
 % (built by the same build-poster.yml workflow → docs/poster.pdf →
 %  pleyva2004.github.io/scholastic-llm/poster.pdf)
 
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,9pt]{extarticle}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[
   paper=a4paper,
-  top=1.4cm, bottom=1.6cm,
-  left=1.6cm, right=1.6cm,
-  headsep=0.4cm
+  top=1.2cm, bottom=1.2cm,
+  left=1.4cm, right=1.4cm,
+  headsep=0.3cm
 ]{geometry}
 \usepackage{microtype}
 \usepackage{amsmath}
@@ -35,8 +35,10 @@
 \titlespacing*{\subsection}{0pt}{0.3em}{0.1em}
 \pagestyle{empty}
 
-% tighten line spacing slightly
-\linespread{1.06}
+% tighten line spacing
+\linespread{1.02}
+\setlength{\parskip}{2pt}
+\setlength{\columnsep}{0.6cm}
 
 \begin{document}
 
@@ -137,25 +139,21 @@ Angelic Doctor addresses with great precision. \textbf{Objection~1.} It
 would seem that divine foreknowledge destroys free will, for if God
 knows\dots''
 
-\section*{Phase 2: voice rebalancing + DPO}
+\section*{Phase 2 \& DPO negative result}
 Scaled to 377 pairs with per-source register hints (Aquinas for
 \emph{Summa}/CCC, Augustinian for \emph{Confessions}/\emph{City of
-God}), 800 SFT iters. Best checkpoint \textbf{iter 400}.
-\textbf{Augustinian gap closed} (\texttt{aug} $3\to7\text{--}13$); under
-a balanced rubric that credits register fluency
-($\max(\textsc{reg},\textsc{aug})$), Phase~2 reaches \textbf{68/90 vs
-Phase~1's 66/90}.
-
-\smallskip\noindent\textbf{Negative result.} A DPO chain
-(\emph{chosen}~$=$~SFT output, \emph{rejected}~$=$~base output) was
-inert: val loss \textbf{0.000} from iter~1, accuracy 1.000, margin
-35.4~nats. Within-model preference data saturates the policy at
-initialization. Useful DPO needs pairs the policy hasn't already pre-learned to favor or disfavor.
+God}), 800 SFT iters; best checkpoint \textbf{iter 400}.
+\textbf{Augustinian gap closed} (\texttt{aug}: $3 \to 7$--$13$); under a
+balanced rubric ($\max(\textsc{reg},\textsc{aug}) + \textsc{ccc} +
+\textsc{str}$), Phase~2 reaches \textbf{68/90 vs Phase~1's 66/90}. A
+DPO chain (chosen $=$ SFT output, rejected $=$ base) was \emph{inert}:
+val loss 0.000 from iter~1, accuracy 1.000, margin 35.4~nats.
+Within-model preference data saturates the policy at initialization.
 
 \section*{Takeaway}
 Small open-weights models move into a niche historical register cheaply
-when capacity (7B not 1.5B) and quantization (Q8 not Q4) are right. The
-bottleneck is the \emph{teacher signal}, not the optimization recipe.
+when capacity (7B not 1.5B) and quantization (Q8 not Q4) are right.
+The bottleneck is the \emph{teacher signal}, not the optimization recipe.
 
 \end{multicols}
 
