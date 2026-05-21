@@ -21,6 +21,10 @@ and **Augustine (Confessions, City of God)**.
 
 **[View the poster](https://pleyva2004.github.io/scholastic-llm/poster.pdf)** — A0 portrait conference poster, auto-rendered on every push.
 
+## Try it live
+
+[**🤗 Hugging Face Space (free CPU demo)**](https://huggingface.co/spaces/pleyva2004/scholastic-llm-demo) — Gradio chat interface using the PEFT-converted adapter on top of Qwen 2.5 7B-Instruct. Slow on free CPU (~30-60 s/response); embedded directly into the [landing page](https://pleyva2004.github.io/scholastic-llm/) for convenience.
+
 ## Models on Hugging Face
 
 Four MLX LoRA adapters for `Qwen/Qwen2.5-7B-Instruct`, each in its own Hub repo with a model card cross-linking the rest:

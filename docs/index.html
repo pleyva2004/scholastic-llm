@@ -76,6 +76,7 @@
   <div class="cta-row">
     <a class="cta" href="main.pdf">Read the paper</a>
     <a class="cta secondary" href="poster.pdf">View the poster</a>
+    <a class="cta secondary" href="https://huggingface.co/spaces/pleyva2004/scholastic-llm-demo" target="_blank" rel="noopener">Try the model</a>
   </div>
 
   <p>This page hosts the latest rendered artifacts for the
@@ -84,6 +85,23 @@
     (<a href="https://github.com/pleyva2004/scholastic-llm/actions/workflows/build-paper.yml">paper</a>,
     <a href="https://github.com/pleyva2004/scholastic-llm/actions/workflows/build-poster.yml">poster</a>)
     on every push that touches their sources.</p>
+
+  <hr />
+
+  <h2 style="margin-bottom:0.3rem;">Try the model</h2>
+  <p style="margin-top:0.2rem; font-size:0.95rem; color:var(--muted);">
+    Live interactive demo on Hugging Face Spaces (free CPU tier).
+    First model load takes ~2–3 minutes and each response ~30–60 seconds — for
+    real-time inference, run the
+    <a href="https://huggingface.co/pleyva2004/scholastic-llm-sft-v2-iter400">MLX adapter</a>
+    locally on Apple Silicon.
+  </p>
+  <iframe
+    src="https://pleyva2004-scholastic-llm-demo.hf.space"
+    title="scholastic-llm interactive demo"
+    loading="lazy"
+    style="width:100%; height:640px; border:1px solid var(--rule); border-radius:6px; margin-top:0.5rem;">
+  </iframe>
 
   <hr />
 
