@@ -90,11 +90,12 @@
 
   <h2 style="margin-bottom:0.3rem;">Try the model</h2>
   <p style="margin-top:0.2rem; font-size:0.95rem; color:var(--muted);">
-    Live interactive demo on Hugging Face Spaces (free CPU tier).
-    First model load takes ~2–3 minutes and each response ~30–60 seconds — for
-    real-time inference, run the
+    Live interactive demo on Hugging Face Spaces (free CPU tier — 2 vCPU, 16 GB RAM).
+    The 7B model is large for this hardware: <strong>each response takes ~5 minutes</strong>
+    (responses are capped at 220 tokens; full Summa-form answers are in the
+    <a href="main.pdf">paper</a>). For real-time inference, run the
     <a href="https://huggingface.co/pleyva2004/scholastic-llm-sft-v2-iter400">MLX adapter</a>
-    locally on Apple Silicon.
+    locally on Apple Silicon (a single response in ~1-3 seconds).
   </p>
   <iframe
     src="https://pleyva2004-scholastic-llm-demo.hf.space"
