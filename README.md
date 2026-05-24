@@ -51,7 +51,10 @@ status of source texts used during training.
 
 ## Status
 
-🚧 In active development. Phase 1 (end-to-end smoke test) in progress.
+Complete through Phase 2 (scaled SFT + DPO experiment). Best checkpoint:
+`sft-v2-iter400` (68/120 strict, 68/90 balanced). DPO chain documented as a
+negative result (saturation when chosen/rejected come from the same model
+family). Four adapter variants published on Hugging Face; live demo running.
 
 ## Approach
 
@@ -63,7 +66,8 @@ status of source texts used during training.
 3. **SFT** (LoRA fine-tune) Qwen 2.5 7B-Instruct (MLX Q8) on the pairs.
 4. **Evaluate** with a rubric scoring scholastic register, CCC grounding,
    Augustinian rhetorical moves, and argument structure.
-5. **(Optional) DPO** refinement against bland base-model outputs.
+5. **DPO** refinement against bland base-model outputs (documented as a
+   negative result — no improvement over SFT due to preference saturation).
 
 ## Requirements
 

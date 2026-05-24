@@ -5,24 +5,24 @@ We presented a small, fully on-device recipe for moving a 7B-parameter
 open-weights model into the scholastic-and-Augustinian register grounded
 in the Catechism of the Catholic Church. The recipe is plain: scrape
 public-domain and fair-use sources; let a stronger model distill
-$\approx$90 instruction pairs at $\approx$\$0.50 of API cost; LoRA SFT on
-MLX with 8-bit weights for seven minutes; evaluate against a coarse
-register-and-grounding rubric. The result is a 258\,\% relative rubric
+instruction pairs at modest API cost; LoRA SFT on MLX with 8-bit weights
+for seven minutes; evaluate against a coarse register-and-grounding
+rubric. Phase~1 (83 pairs, 200 iters) achieves a 258\,\% relative rubric
 gain (19$\to$68 out of 120) driven primarily by scholastic surface
-markers and CCC paragraph citations. The model writes longer, more
-structured, more recognisably Summa-shaped responses to philosophical
-prompts than the base model does, and it does so without overfitting
-the small training set. We also reported, as motivating context, the
-failure of DPO and ORPO on a smaller 1.5B 4-bit base, which steered the
-project away from preference-first methods and toward SFT-first on a
-larger Q8 base.
+markers and CCC paragraph citations. Phase~2 scales to 377 pairs and 800
+iterations with per-source register hinting, closing the Augustinian
+voice gap (3$\to$13) while matching Phase~1's strict total and improving
+the balanced register-fluency metric (68/90 vs 66/90); the best
+checkpoint is iter~400. A DPO chain applied on top of SFT-v2 contributed
+nothing --- a setup pitfall we document --- demonstrating that
+within-model preference data is degenerate when the SFT policy already
+separates chosen and rejected at extreme margins. We also reported, as
+motivating context, the failure of DPO and ORPO on a smaller 1.5B 4-bit
+base, which steered the project away from preference-first methods and
+toward SFT-first on a larger Q8 base.
 
 \paragraph{Future work.} Several next steps are immediate.
 \begin{enumerate}
-  \item \textbf{Phase~2 (in flight).} A larger training mix (300 pairs)
-        with extended training (800 iters), followed by a DPO chain on
-        base-vs-SFT preference pairs. Section~\ref{sec:phase2} contains
-        a \texttt{\textbackslash{}todo} placeholder for the results.
   \item \textbf{Human evaluation.} A small expert rater study (3 raters
         $\times$ 30 prompts) across scholastic-register quality,
         theological accuracy, and Augustinian-voice authenticity would
@@ -46,8 +46,7 @@ larger Q8 base.
         the obvious next steps.
 \end{enumerate}
 
-We release the code, the rubric, the held-out evaluation prompts, and
-this preprint; we do not release the LoRA adapter weights or the
-training data, both of which have CCC content in their lineage. The
+We release the code, the rubric, the held-out evaluation prompts, four
+MLX LoRA adapter variants on Hugging Face, and this preprint. The
 project repository, including this paper, lives at the path
 \texttt{paper/} in the public scholastic-llm repository.
