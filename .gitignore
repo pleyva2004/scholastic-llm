@@ -54,3 +54,6 @@ poster/_minted-*
 .vscode/
 .idea/
 *.swp
+
+# post-experiments trained adapters (reproducible from data+command)
+post-experiments/*/adapters/

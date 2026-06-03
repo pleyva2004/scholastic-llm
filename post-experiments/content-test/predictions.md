@@ -55,5 +55,44 @@ margin reads the content axis."
 
 ## Outcomes (appended post-hoc only)
 
-<!-- dated block: trained vs held-out cos(δh,Δu) ± CI, margin-flip count, pairwise
-     cos, marker-z; content vs voice vs base; verdict M_grad / M_subspace -->
+### 2026-06-03 — Run (results commit follows this block)
+
+Content adapter trained to voice parity (rank 8, scale 10, 16 layers, lr 1e-5,
+400 iters; train loss 0.08). null std 0.017, bar 0.033.
+
+| condition | split | cos(δh,Δu) [CI] | ΔM | flipped | cos_style |
+|---|---|---|---|---|---|
+| voice | trained | +0.001 [−.008,+.011] | +0.02 | 0/10 | +0.023 |
+| voice | held-out | −0.019 [−.031,−.007] | −1.22 | 0/10 | +0.020 |
+| **content-cf** | **trained** | **−0.107 [−.149,−.067]** | **−11.5** | **9/10** | −0.008 |
+| content-cf | held-out | −0.012 [−.025,+.001] | −0.70 | 0/10 | +0.000 |
+
+fingerprints — voice: pairwise cos 0.363, marker-z **+1.03**; content-cf: pairwise
+cos **0.380**, marker-z **−0.32**.
+
+**VERDICT — prediction CONFIRMED → M_grad / M_capacity.** With a content gradient,
+the same rank-8 LoRA rotates δh onto the content axis (trained cos −0.107, clears the
+bar, CI excludes 0; ~9× the held-out/voice values) and **flips 9/10 trained margins**
+(ΔM −11.5). Held-out cos ≈ 0, 0/10 flipped → **memorized, did not generalize**
+(M_capacity). Marker-z ≈ 0 (content write, not style — mirror of voice's +1.03).
+**Conclusion: voice's orthogonality was GRADIENT-ROUTED (starvation) — the content
+was already correct, so there was no content gradient — NOT a structural inability of
+LoRA to write content.**
+
+**Calibration:**
+- ✅ M_grad headline (~75% → confirmed); trained margins flip (predicted ≥8/10, got
+  9/10); held-out ≈ 0 (memorized, not generalized); marker-z ≈ 0; trained cos < −0.10
+  (got −0.107, just clears).
+- ❌ **Fingerprint disconfirmed:** I predicted content δh would have **low** pairwise
+  cos (< 0.15, "fact-specific"). It was **0.38** — *higher* than voice. Diagnosis: the
+  content adapter ALSO carries a large shared component — a generic "answer
+  plainly about Catholic theology" topic/format shift applied to every prompt — on top
+  of the small fact-specific content rotation. So **pairwise cos does NOT discriminate
+  content-write from style-write** (any topically-coherent SFT induces a shared
+  direction). The clean discriminators are the **targeted** axes — `cos(δh,Δu)` for
+  content and marker-z for register — which separated perfectly.
+- **Honest magnitude note:** even the content adapter's δh is only `cos −0.107` from
+  orthogonal — i.e. still ~99% of its norm is OFF the content axis. The content axis is
+  a tiny slice of δh; it flips facts only because ‖δh‖‖Δu‖ are large (small-cos ×
+  large-norm again). The voice-vs-content difference (0 vs −0.107, signed) is decisive,
+  but in absolute terms content is a thin sliver of either adapter's write.
