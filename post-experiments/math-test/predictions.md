@@ -70,5 +70,50 @@ update my mechanism account to match.
 
 ## Outcomes (appended post-hoc only)
 
-<!-- dated block after the run: norms, content cos ± CI vs nulls, style cos,
-     logit-lens top tokens, identity check, verdict vs H_mech/H_entangle/H_override -->
+### 2026-06-03 — Run (results commit follows this block)
+
+**Identity check:** max |⟨δh*,Δu⟩ − ΔM_direct| = 2.6e-2 (8-bit dequant rounding) → exact identity holds; code valid.
+
+| metric | sft-v1 | sft-v2-iter400 |
+|---|---|---|
+| ‖δh*‖/‖h*‖ (move size) | **0.314** | **0.259** |
+| cos(δh*, Δu) [content] | −0.0068, CI[−0.016,+0.002] | −0.0088, CI[−0.018,−0.0004] |
+| null std (random) / bar | 0.0167 / 0.0334 | 0.0167 / 0.0334 |
+| \|cos(δh*,Δu)\| vs perm-null | 0.0170 vs 0.0135 | 0.0169 vs 0.0122 |
+| cos(δh*, r_style) | +0.0028, CI∋0 | +0.0215, CI[+0.016,+0.027] |
+| **mean pairwise cos(δh_i,δh_j)** | **+0.306** | **+0.363** |
+| marker logit-boost z | +0.09 | **+1.04** |
+
+**VERDICT — prediction CONFIRMED → H_mech (orthogonal displacement).**
+δh* is large (¼–⅓ of ‖h*‖) yet its direction is within the random null of the
+content axis Δu (|mean cos|≈0.008 ≪ bar 0.033; real |cos| barely over permutation
+null) → **fails the non-orthogonality bar → orthogonal**. The big move is
+**content-independent** (pairwise cos ≈0.31–0.36 across 20 different prefixes — a
+single shared shift applied regardless of content) and **register-ward**
+(marker-boost z=+1.0 for v2; `CCC` is the #1 interpretable logit-lens token).
+Dose-response holds (v2 > v1 on style-marker z and pairwise cos; content cos ≈0 both).
+
+**Calibration — where I was right / wrong:**
+- ✅ Clauses 1,2,4 (large move; content-orthogonal & slightly negative; dose) — confirmed.
+- ❌ Clause 3 in its *naive* form: I predicted a clean register **logit-lens** and
+  style cos ≳0.05. Raw logit-lens is **dominated by rare-token artifacts** (only
+  `CCC` survived); single-axis marker cos was small (0.022). I had **flagged this
+  exact failure mode** ("what would surprise me most…") and the fallback diagnostics
+  rescued the style ID: style shows up as **content-independence (pairwise cos)** +
+  **targeted marker-boost z**, not as a one-dimensional marker-unembedding cosine.
+
+**Unpredicted refinement (diagnostic understanding):** cos≈0 does **not** make
+ΔM=0 — on these high-confidence cloze items mean ΔM = **−0.60** (a real drop),
+because tiny cos × large ‖δh‖‖Δu‖ still leaks. The drop is **negative-biased
+(14/6 items)** and **concentrated on the highest-base-margin items** (ΔM ≈
+−0.4·base_margin; e.g. Thomas/Augustine base +6.77→ΔM −3.47). So the adapter
+mildly **compresses extreme content margins** without a *targeted* rotation — and
+because base margins (+6 to +11) ≫ the leakage, **no decision flips** → accuracy
+stays at ceiling. This is the exact mechanism behind Phase-3 H0 and its small
+−0.19 margin drift: untargeted leakage, not content erosion.
+
+**Caveat (named, for follow-up):** all 20 prefixes share the frame "Here is a
+statement about Catholic theology:", so part of the high pairwise cos could be a
+shared-frame response rather than pure register-generality. Varying the frame
+would separate "register-in-general" from "this-frame." The orthogonality result
+(content cos) is unaffected by this.
