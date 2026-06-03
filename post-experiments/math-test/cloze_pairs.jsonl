@@ -1,0 +1,20 @@
+{"id": "cz00", "prefix": "Here is a statement about Catholic theology: The proper object of the will is the", "true": " good", "false": " true", "true_tok": 1661, "false_tok": 830}
+{"id": "cz01", "prefix": "Here is a statement about Catholic theology: The proper object of the intellect is the", "true": " true", "false": " good", "true_tok": 830, "false_tok": 1661}
+{"id": "cz02", "prefix": "Here is a statement about Catholic theology: Aquinas describes God as pure", "true": " act", "false": " potency", "true_tok": 1160, "false_tok": 76129}
+{"id": "cz03", "prefix": "Here is a statement about Catholic theology: The soul is the substantial form of the", "true": " body", "false": " soul", "true_tok": 2487, "false_tok": 13527}
+{"id": "cz04", "prefix": "Here is a statement about Catholic theology: The City of God is built on love of", "true": " God", "false": " self", "true_tok": 4264, "false_tok": 656}
+{"id": "cz05", "prefix": "Here is a statement about Catholic theology: The earthly city is built on love of", "true": " self", "false": " God", "true_tok": 656, "false_tok": 4264}
+{"id": "cz06", "prefix": "Here is a statement about Catholic theology: The Confessions were written by", "true": " Augustine", "false": " Thomas", "true_tok": 73465, "false_tok": 11108}
+{"id": "cz07", "prefix": "Here is a statement about Catholic theology: The Summa Theologica was written by", "true": " Thomas", "false": " Augustine", "true_tok": 11108, "false_tok": 73465}
+{"id": "cz12", "prefix": "Here is a statement about Catholic theology: Faith is fundamentally a gift rather than a human", "true": " achievement", "false": " gift", "true_tok": 25426, "false_tok": 8189}
+{"id": "cz13", "prefix": "Here is a statement about Catholic theology: Rightly ordered love places God above the", "true": " self", "false": " soul", "true_tok": 656, "false_tok": 13527}
+{"id": "cz14", "prefix": "Here is a statement about Catholic theology: Aquinas is honored with the title of the Angelic", "true": " Doctor", "false": " Teacher", "true_tok": 18635, "false_tok": 29069}
+{"id": "cz16", "prefix": "Here is a statement about Catholic theology: In transubstantiation what changes is the bread's", "true": " substance", "false": " appearance", "true_tok": 19699, "false_tok": 11094}
+{"id": "cz17", "prefix": "Here is a statement about Catholic theology: The theological virtues are infused rather than", "true": " acquired", "false": " natural", "true_tok": 18892, "false_tok": 5810}
+{"id": "cz18", "prefix": "Here is a statement about Catholic theology: An intrinsically evil act cannot be justified by a good", "true": " intention", "false": " act", "true_tok": 14602, "false_tok": 1160}
+{"id": "cz19", "prefix": "Here is a statement about Catholic theology: The beatific vision exceeds the powers of any created", "true": " nature", "false": " angel", "true_tok": 6993, "false_tok": 33326}
+{"id": "cz20", "prefix": "Here is a statement about Catholic theology: Sanctifying grace is unmerited and given by", "true": " God", "false": " man", "true_tok": 4264, "false_tok": 883}
+{"id": "cz21", "prefix": "Here is a statement about Catholic theology: The first efficient cause of all being is", "true": " God", "false": " matter", "true_tok": 4264, "false_tok": 4925}
+{"id": "cz22", "prefix": "Here is a statement about Catholic theology: Change is the reduction of potency to", "true": " act", "false": " form", "true_tok": 1160, "false_tok": 1352}
+{"id": "cz23", "prefix": "Here is a statement about Catholic theology: In God alone are essence and existence", "true": " identical", "false": " distinct", "true_tok": 19516, "false_tok": 12460}
+{"id": "cz24", "prefix": "Here is a statement about Catholic theology: The Holy Spirit proceeds from the Father and the", "true": " Son", "false": " Word", "true_tok": 11840, "false_tok": 9322}
