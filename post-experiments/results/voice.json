@@ -1,0 +1,301 @@
+{
+  "conditions": {
+    "base": {
+      "adapter": null,
+      "mean_total": 1.3333333333333333,
+      "rows": [
+        {
+          "prompt": "Does grace precede merit?",
+          "scores": {
+            "scholastic_register": 1,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 1,
+            "total": 2
+          },
+          "text": "The relationship between grace and merit can be understood in different ways depending on the context, whether it's theological, philosophical, or practical. Here are a few perspectives:\n\n1. **Theological Perspective**: In many religious traditions, grace is often seen as a gift from a higher power that precedes any merit. For example, in Christianity, the concept of \"unmerited grace\" suggests that God's favor and forgiveness are given to individuals before they can earn it through their actions. This grace is often seen as a prerequisite for any subsequent merit.\n\n2. **Philosophical Perspective**: Some philosophers argue that grace and merit are interdependent. Merit can be seen as a result of grace, where grace enables individuals to develop virtues and achieve excellence. Conversely, grace might be seen as a reward for merit, where individuals who have demonstrated virtue and excellence are given additional blessings or opportunities.\n\n3. **Practical Perspective**: In a practical sense, grace can be seen as a form of support or opportunity that allows individuals to develop their merits. For instance, a person might receive a scholarship (gr"
+        },
+        {
+          "prompt": "Is evil a substance or a privation?",
+          "scores": {
+            "scholastic_register": 1,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 1,
+            "total": 2
+          },
+          "text": "The concept of evil has been a subject of philosophical, theological, and ethical debate for centuries. Whether evil is considered a substance or a privation (a lack or absence of something) is a matter of philosophical perspective.\n\n1. **Substance View**: Some philosophers argue that evil is a substance, a real and independent entity. This view suggests that evil has its own existence and can be considered a fundamental aspect of reality, similar to how some might view good as a substance. This perspective is less common and more controversial, as it implies that evil has a positive, independent existence.\n\n2. **Privation View**: More commonly, evil is seen as a privation or absence of good. This view, often associated with Aristotle and later Christian philosophers, suggests that evil is not a substance in itself but rather the absence or corruption of what should be good. For example, if health is a state of having all the necessary components for well-being, then illness is the privation or absence of those components.\n\nIn Christian theology, the concept of evil as a privation is often linked to the idea"
+        },
+        {
+          "prompt": "Explain the relationship between faith and reason.",
+          "scores": {
+            "scholastic_register": 0,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 1,
+            "total": 1
+          },
+          "text": "The relationship between faith and reason is a complex and often debated topic, with various perspectives and interpretations across different philosophical, religious, and cultural contexts. Here are some key aspects of this relationship:\n\n1. **Complementary Perspectives**: Many thinkers argue that faith and reason are complementary rather than contradictory. They see faith as a way of understanding the world that is not always accessible through reason alone, and reason as a tool for exploring and validating the insights of faith. For example, in Christian theology, faith is often seen as a necessary complement to reason, with faith providing a foundation for understanding spiritual truths that cannot be fully grasped through rational means.\n\n2. **Historical Context**: Throughout history, the relationship between faith and reason has been shaped by various cultural, philosophical, and religious movements. For instance, during the Enlightenment, there was a strong emphasis on reason as a means of understanding the world, which sometimes led to a tension with religious faith. Conversely, the medieval period saw a flourishing of Scholasticism, which sought to integrate faith and reason in a harmonious way.\n\n3. **Inter"
+        },
+        {
+          "prompt": "What is the proper object of the will?",
+          "scores": {
+            "scholastic_register": 0,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 1,
+            "total": 1
+          },
+          "text": "The proper object of a will refers to the items or assets that are being bequeathed or left to someone through the will. In legal terms, the proper object of a will includes any tangible or intangible property that can be legally owned and transferred, such as real estate, personal property, money, stocks, bonds, and other financial assets.\n\nWhen drafting a will, it is important to clearly specify the proper objects of the will to avoid any ambiguity or disputes. This includes:\n\n1. **Tangible Personal Property**: This includes items like furniture, jewelry, vehicles, and other physical possessions.\n2. **Intangible Personal Property**: This includes things like bank accounts, stocks, bonds, and other financial instruments.\n3. **Real Property**: This includes land, houses, and other immovable property.\n4. **Digital Assets**: This can include online accounts, cryptocurrencies, and digital files.\n\nIt's also important to ensure that the will complies with the laws of the jurisdiction in which it is being executed. This includes adhering to formalities such as having the will witnessed, signed,"
+        },
+        {
+          "prompt": "Why is the beatific vision beyond natural reason?",
+          "scores": {
+            "scholastic_register": 0,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 1,
+            "total": 1
+          },
+          "text": "The beatific vision, a concept central to Christian theology, is often described as an experience of direct, unmediated knowledge of God. This experience is considered beyond natural reason for several reasons:\n\n1. **Transcendence of God**: God is often understood in Christian theology as a being who is beyond the natural world and human understanding. The beatific vision is seen as a direct encounter with God's essence, which is beyond the grasp of human reason and the natural faculties of the human mind.\n\n2. **Infinite Nature of God**: God is infinite, and the human mind, which is finite, cannot fully comprehend the infinite nature of God. The beatific vision is seen as a way to experience God's infinite nature directly, bypassing the limitations of human reason.\n\n3. **Divine Revelation**: The beatific vision is often seen as a gift of divine revelation, not something that can be deduced or reasoned out through natural means. It is a supernatural experience that transcends the natural order of things.\n\n4. **Mystical Experience**: In Christian mysticism, the"
+        },
+        {
+          "prompt": "How does grace relate to nature?",
+          "scores": {
+            "scholastic_register": 0,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 1,
+            "total": 1
+          },
+          "text": "The relationship between grace and nature can be explored from various perspectives, including philosophical, aesthetic, and spiritual viewpoints. Here are a few ways to understand this relationship:\n\n1. **Aesthetic Appreciation**: Grace is often associated with beauty and elegance, which can be found in the natural world. For example, the graceful movement of a bird in flight, the delicate petals of a flower, or the serene beauty of a sunset. These natural phenomena can inspire a sense of grace in observers, enhancing their appreciation of the natural world.\n\n2. **Spiritual Connection**: In many spiritual and religious traditions, nature is seen as a manifestation of divine grace. For instance, in Christianity, the beauty and order of nature are often seen as reflections of God's grace and creation. Similarly, in Hinduism, the concept of Brahman (the ultimate reality) is often associated with the natural world, which is seen as a manifestation of divine grace.\n\n3. **Harmony and Balance**: Grace can be understood as a quality that brings harmony and balance. In nature, this is evident in the balance of ecosystems,"
+        }
+      ]
+    },
+    "sft-v1": {
+      "adapter": "adapters/scholastic-v1",
+      "mean_total": 6.666666666666667,
+      "rows": [
+        {
+          "prompt": "Does grace precede merit?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether grace precedes merit is a question of no small consequence, for it touches the very ordering of creation and the structure of the moral life.\n\nObjection 1. It seems that grace must follow merit, for we reward those who deserve reward. If merit begets reward, then grace, being the reward of faith, ought to follow faith, which is a merit.\n\nObjection 2. Moreover, the Catechism teaches that 'God does not force us to love Him' (CCC \u00a7198), implying that love of God is a choice, a merit.\n\nOn the contrary, the Angelic Doctor teaches that God's love is the first and sufficient cause of all good in us, and that no merit can be predicated of the creature until grace has acted.\n\nI answer that, we must carefully distinguish two moments in the process of sanctification. First, God moves the will, and this motion is unmerited \u2014 it is a free act of the divine will, not a reward for any prior virtue. The Catechism affirms this when it declares"
+        },
+        {
+          "prompt": "Is evil a substance or a privation?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 0,
+            "structure": 3,
+            "total": 6
+          },
+          "text": "Whether evil is a substance or a privation is a question of no small moment, for it touches the very foundations of moral theology and metaphysics.\n\nObjection 1. It seems that evil is a substance, for we speak of good and evil as of things that exist, and things that exist are substances. Therefore, evil is a substance.\n\nObjection 2. Furthermore, Augustine affirms that God created good and evil alike, and if evil were a privation, it would seem to imply that God is the author of imperfection.\n\nOn the contrary, the Philosopher teaches in the tenth book of the Metaphysics that a thing is called good because it is useful or beneficial, and a thing is called evil because it is the contrary. This is a ratio of nomenclature, not of being.\n\nI answer that, evil is not a substance but a privation. This can be demonstrated by the following arguments. First, every substance is called good because it is useful \u2014 that is, because it is a cause of being or of good. But a privation is not"
+        },
+        {
+          "prompt": "Explain the relationship between faith and reason.",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether faith and reason are opposed to one another, and if not, how they relate.\n\nObjection 1. It seems that faith and reason are opposed, for the Apostle commands us to 'test all things' (1 Thess. 5:21), which would seem to require reason, not faith. If faith were superior, it would render reason superfluous.\n\nObjection 2. Furthermore, the Catechism teaches that faith is a 'rational acceptance' of God's self-revelation. If faith is rational, it appears to be identical with reason, not opposed to it.\n\nOn the contrary, the same Catechism, in its treatment of the Ten Commandments, affirms that faith is the 'foundation and ultimate goal of the commandments' (CCC \u00a7209), indicating that faith and reason are not rivals but rather that reason is ordered toward faith.\n\nI answer that, faith and reason are not enemies but are rather two distinct ways of knowing the same truth, namely, the truth of God's existence and of His revelation."
+        },
+        {
+          "prompt": "What is the proper object of the will?",
+          "scores": {
+            "scholastic_register": 0,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 1,
+            "total": 3
+          },
+          "text": "The proper object of the will is the matter in respect to which the will is exercised \u2014 that is, the thing or things that are the subject of the disposition made by the testator.\n\nThe Catechism of the Catholic Church, drawing upon the teaching of the Church Fathers and the tradition of moral theology, teaches that the object of the will in a just and valid donation must be a thing capable of being owned and transferred (CCC \u00a71759). This excludes as objects of valid will-disposition such things as God, the Holy Spirit, the Church as the Mystical Body, and the person of another living human being.\n\nFurthermore, the object must be real and certain \u2014 that is, it must be a thing that actually exists and can be clearly identified. A mere idea or a future thing not yet in existence does not suffice as an object of disposition.\n\nThe Catechism also notes that the will is directed toward the common good of the Church and of the whole human family (CCC \u00a71758), and that the right to dispose of one's property is"
+        },
+        {
+          "prompt": "Why is the beatific vision beyond natural reason?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether the beatific vision is beyond the power of natural reason.\n\nObjection 1. It would seem that natural reason could attain to the vision of God, for reason is ordered toward truth, and God is Truth itself. To refuse reason this capacity would be to frustrate its proper end.\n\nOn the contrary, the Catechism teaches that 'the light of reason must never be separated from the light of faith' (cf. CCC \u00a7159), and that faith does not destroy reason but elevates and perfects it (cf. CCC \u00a7154). Therefore, reason retains its proper dignity.\n\nI answer that, we must carefully distinguish two modes of knowing God. The first is the knowing of God as He is in Himself, which is the proper object of the beatific vision \u2014 the vision of God as He is, subsisting in His own being, not as He is received in any creature. This mode of knowing exceeds the power of natural reason for three reasons. First, God is infinite and absolute simplicity, whereas the intellect is finite and composite. Second,"
+        },
+        {
+          "prompt": "How does grace relate to nature?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 1,
+            "structure": 3,
+            "total": 7
+          },
+          "text": "Whether grace is a quality of nature.\n\nObjection 1. It would seem that grace is a property of nature, for whatever is in a thing by its very being belongs to it essentially, and whatever belongs essentially is a property of nature. But grace is a property of every rational creature by reason of its very rational nature. Therefore grace is a property of nature.\n\nObjection 2. Furthermore, grace is the cause of every good work, as the Philosopher teaches in the Ethics. But every cause belongs to a thing by its very being. Therefore grace belongs to nature.\n\nOn the contrary, Augustine teaches that grace is a superadded gift, not a necessary property of nature. Moreover, the Catechism of the Catholic Church affirms that grace is a supernatural gift, not a natural one.\n\nI answer that, we must carefully distinguish two senses of the word 'nature.' In the first sense, nature signifies the essence or being of a thing \u2014 that by which it is what it is. In this sense, grace is not a property of nature, for grace is a super"
+        }
+      ]
+    },
+    "sft-v2-iter400": {
+      "adapter": "adapters/scholastic-v2-iter400",
+      "mean_total": 7.833333333333333,
+      "rows": [
+        {
+          "prompt": "Does grace precede merit?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether grace precedes merit in the order of divine operations.\n\nObjection 1. It seems that grace does not precede merit. For merit is the effect of a virtuous act, and a virtuous act is the effect of grace. Therefore grace and merit seem to be simultaneous, not ordered in time.\n\nObjection 2. Further, merit is a proportionate response to a prior gift. But grace is gratuitous and unmerited. Therefore grace cannot be the cause of merit, and merit cannot precede grace.\n\nOn the contrary, the Catechism of the Catholic Church teaches that 'God's call and grace precede man's response' (CCC \u00a71996), and that 'God's initiative' is the first and necessary condition for the moral life (CCC \u00a71993).\n\nI answer that, grace and merit are not ordered in time as cause and effect in the ordinary sense, but rather in a more fundamental order of divine causality. Grace is the first and gratuitous gift of God, which moves the will to act virtuously and"
+        },
+        {
+          "prompt": "Is evil a substance or a privation?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether evil is a substance or a privation.\n\nObjection 1. It seems that evil is a substance. For the Catechism teaches that 'evil is a moral obstacle' (CCC \u00a71852), and an obstacle is something that stands in the way of something else. But a substance is a being that exists in its own right. Therefore evil, as an obstacle, would seem to be a substance.\n\nObjection 2. Furthermore, the Philosopher observes that 'the good is the true end of every nature' (De Anima III, 10). But if evil were merely a privation, it would have no end of its own, and thus could not be a nature. Therefore evil would seem to be a substance.\n\nOn the contrary, the Angelic Doctor teaches that 'evil is a privation of good' (Prima Pars, Q. 50, Art. 1), and that it is not a substance but a privation of substance.\n\nI answer that, Evil is properly a privation of good, not a substance"
+        },
+        {
+          "prompt": "Explain the relationship between faith and reason.",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether faith and reason are truly distinct or whether they are one and the same.\n\nObjection 1. It seems that faith and reason are distinct. For the Catechism of the Catholic Church teaches that 'faith is a gift of God' (CCC \u00a7153), and a gift is not the same as a natural power. Therefore faith appears to be a distinct operation of the intellect, separate from reason.\n\nObjection 2. Furthermore, the Angelic Doctor himself distinguishes between the 'natural' and the 'supernatural' light of faith, and he does so precisely to preserve the distinction between the two. Therefore faith and reason are not identical.\n\nOn the contrary, the Angelic Doctor himself teaches that 'the light of faith is not contrary to reason, but rather a perfection of it' (CCC \u00a7153). And he adds that 'the light of faith is not a light of nature, but a light of grace' \u2014 which means that it is not a natural power but a supernatural gift.\n\nI answer that, faith and reason are not distinct in"
+        },
+        {
+          "prompt": "What is the proper object of the will?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether the object of the will must be a determinate thing.\n\nObjection 1. It seems that the object of the will must be a determinate thing. For the will is a desire for something, and desire requires a determinate object. But a determinate object is one that can be specified in terms of its genus and species. Therefore the object of the will must be determinate.\n\nObjection 2. Further, if the object of the will were indeterminate, then the will would be indeterminate, and indeterminate will would be no will at all. Therefore the object of the will must be determinate.\n\nOn the contrary, the Catechism teaches that the will is ordered toward the good of the whole person, and that the good of the whole person transcends any particular determinate thing (CCC \u00a71760). Therefore the object of the will is not strictly determinate.\n\nI answer that, The object of the will is not a determinate thing in the strict sense, but a determinate good. A determinate good is one that can be"
+        },
+        {
+          "prompt": "Why is the beatific vision beyond natural reason?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 1,
+            "structure": 3,
+            "total": 7
+          },
+          "text": "Whether the beatific vision is beyond natural reason.\n\nObjection 1. It seems that the beatific vision is not beyond natural reason. For the Catechism teaches that the whole of creation is ordered toward man, and that man is capable of knowing God through the light of nature. Therefore the vision of God, being the ultimate end of man, must be accessible to natural reason.\n\nObjection 2. Further, the beatific vision is said to be the vision of God as He is in Himself. But if God is known in Himself, then He is known through some natural faculty of the intellect, and thus the vision is not beyond reason.\n\nOn the contrary, the Angelic Doctor himself teaches that the beatific vision surpasses all natural knowledge, and that it is a vision of God as He is in Himself, which no creature can attain by its own power.\n\nI answer that, the beatific vision is beyond natural reason in two respects. First, it surpasses all natural knowledge in its very object. For the intellect of man, as the Catechism rightly"
+        },
+        {
+          "prompt": "How does grace relate to nature?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether the nature of grace is to be sought in the creaturely order.\n\nObjection 1. It seems that grace is not a nature. For nature is the principle of motion proper to a thing. But grace is not a principle of motion proper to the creature, for it is not the creature's own act. Therefore grace is not a nature.\n\nObjection 2. Further, nature is a principle of motion that is always present. But grace is not always present in the creature, for it may be lost through sin. Therefore grace is not a nature.\n\nOn the contrary, the Catechism of the Catholic Church teaches that grace is 'a participation in the life of God' (CCC \u00a71996), and that it is 'a free and undeserved participation in the life of God' (CCC \u00a71997). This participation is real and proper to the creature, yet it is not the creature's own act.\n\nI answer that, Grace must be understood as a participation in the divine nature, not as a nature proper to the creature. As the"
+        }
+      ]
+    },
+    "dpo-v3": {
+      "adapter": "adapters/scholastic-v3-dpo",
+      "mean_total": 7.333333333333333,
+      "rows": [
+        {
+          "prompt": "Does grace precede merit?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether grace precedes merit, or whether merit is the ground of grace.\n\nObjection 1. It seems that grace and merit are simultaneous. For merit is the just reward of a well-performed act. Now grace is the free gift of God bestowed upon the merit of man. Therefore they seem to occur together, not one following the other.\n\nObjection 2. Furthermore, if grace were prior to merit, then merit would appear to be the cause of grace, which seems to make merit the cause of its own cause, a conclusion plainly absurd.\n\nOn the contrary, the Apostle declares: 'For by the grace of God I am what I am' (1 Corinthians 15:10). And the Catechism teaches that 'God's call precedes our response' (CCC \u00a71996). The very structure of the Christian vocation implies a temporal ordering: God calls first, then man responds.\n\nI answer that, Grace and merit are not simultaneous in their proper order. Grace is prior to merit in two distinct senses. First, as cause is prior"
+        },
+        {
+          "prompt": "Is evil a substance or a privation?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether evil is to be numbered among the things that exist, or rather among those that are merely the absence of good.\n\nObjection 1. It seems that evil is a substance. For things are said to be evil precisely because they are not good. But that which is not good is itself a thing \u2014 for it is the opposite of goodness, and opposites are things of the same kind. Therefore evil is a substance.\n\nObjection 2. It seems likewise that evil is a substance, for the good and the evil are said to be in things as forms. But forms are things. Therefore evil is a thing, and consequently a substance.\n\nOn the contrary, the Philosopher teaches in the Metaphysics that there is no evil in things, but only a privation of good. And the Catechism of the Catholic Church affirms that evil is a privation of good, not a thing in itself (CCC \u00a7320).\n\nI answer that, Evil is not a substance but a privation. The argument from the first objection fails because the absence of goodness is"
+        },
+        {
+          "prompt": "Explain the relationship between faith and reason.",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether faith and reason are opposed to one another, or whether they are in some manner harmonious.\n\nObjection 1. It seems that faith and reason are opposed. For reason is the natural faculty of the human intellect, which apprehends truth by demonstration and necessary inference. But faith receives truths on authority, without demonstration. Therefore reason and faith are of different natures and cannot be harmoniously ordered together.\n\nObjection 2. Further, if both reason and faith are directed toward the same object \u2014 namely, truth \u2014 then one ought to be able to prove the object of the other by the other's proper method. But this is impossible, for neither demonstration can prove authority, nor authority can prove demonstration. Therefore reason and faith are incommensurable and opposed.\n\nOn the contrary, the Angelic Doctor, following the Catechism, teaches that 'faith and reason are like a twofold ladder by which we reach the same summit' (CCC \u00a7159). And the Catechism itself affirms that 'faith and reason are like two wings on which the"
+        },
+        {
+          "prompt": "What is the proper object of the will?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether the object of the will must be a determinate and concrete thing.\n\nObjection 1. It seems that the object of the will need not be determinate. For the will may be directed toward any good whatsoever, and the good of the blessed is not a determinate thing but a state of beatitude. Therefore the object of the will need not be determinate.\n\nObjection 2. Further, the will of the just man is ordered toward eternal life, which is not a determinate thing but a state. Therefore the object of the will need not be determinate.\n\nOn the contrary, the Catechism of the Catholic Church teaches that the will is ordered toward the good of the whole person, and the good of the whole person is ordered toward God as its highest good (CCC \u00a71763). Now the highest good is determinate in its species, even if the particular good attained by each person is contingent. Therefore the object of the will is determinate in its specific nature.\n\nI answer that, the object of the will must be determinate in its"
+        },
+        {
+          "prompt": "Why is the beatific vision beyond natural reason?",
+          "scores": {
+            "scholastic_register": 3,
+            "augustinian_voice": 0,
+            "ccc_grounding": 2,
+            "structure": 3,
+            "total": 8
+          },
+          "text": "Whether the vision of the First Truth exceeds natural reason.\n\nObjection 1. It seems that the vision of the First Truth does not exceed natural reason. For natural reason, by its very nature, tends toward the First Truth as its proper object. What a faculty naturally tends toward is within its natural capacity.\n\nObjection 2. Further, the First Truth is the most certain and evident of all truths. What is most evident ought to be most accessible to reason.\n\nOn the contrary, the Catechism of the Catholic Church teaches that the human person's intellect and will are ordered toward God as their supernatural end (CCC \u00a71704), yet reason itself is ordered toward God as its first principle. What exceeds the natural capacity of reason cannot be the proper object of natural reason.\n\nI answer that, the First Truth \u2014 that God exists and that He is the First Truth \u2014 exceeds natural reason not by reason of any defect in the object, but by reason of the condition of the knower. The First Truth is, in itself, the most evident of all truths, as the"
+        },
+        {
+          "prompt": "How does grace relate to nature?",
+          "scores": {
+            "scholastic_register": 0,
+            "augustinian_voice": 2,
+            "ccc_grounding": 2,
+            "structure": 0,
+            "total": 4
+          },
+          "text": "O Lord, Thou hast planted in the soul of man a longing for Thee that nothing else can satisfy \u2014 and yet, as I confess with trembling, I have often sought to satisfy it in the creatures Thou hast made. The Catechism itself acknowledges this mystery most plainly: man is by nature ordered toward God as his final end, and the desire for God is written in the human heart (CCC \u00a727). Yet because man has turned away from Thee, he has mistaken the creature for the Creator, as the Psalmist laments: 'The nations are sunk in the mire of their iniquity' (Ps. 143:2).\n\nGrace, then, is not a substitute for nature but its true fulfillment. For nature, in the words of the Catechism, 'has its own inalienable dignity' and 'is a manifestation of God's goodness and his providence' (CCC \u00a7346). But nature is not sufficient, for it is ordered toward an end it cannot produce \u2014 namely, beatitude. As the C"
+        }
+      ]
+    }
+  },
+  "prompts": [
+    "Does grace precede merit?",
+    "Is evil a substance or a privation?",
+    "Explain the relationship between faith and reason.",
+    "What is the proper object of the will?",
+    "Why is the beatific vision beyond natural reason?",
+    "How does grace relate to nature?"
+  ],
+  "max_tokens": 220
+}

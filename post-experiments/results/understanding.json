@@ -1,0 +1,2280 @@
+{
+  "conditions": {
+    "base": {
+      "adapter": null,
+      "doctrinal": {
+        "n": 34,
+        "accuracy": 0.9411764705882353,
+        "mean_margin": 0.9287793594620379,
+        "margin_ci": [
+          0.6909217477278895,
+          1.1656279446244413
+        ]
+      },
+      "anchor": {
+        "n": 5,
+        "accuracy": 0.8,
+        "mean_margin": 1.1171475968629252
+      },
+      "per_category": {
+        "anthropology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.614787313673232
+        },
+        "augustine": {
+          "n": 4,
+          "accuracy": 1.0,
+          "mean_margin": 0.7424671921433443
+        },
+        "beatitude": {
+          "n": 1,
+          "accuracy": 0.0,
+          "mean_margin": -0.821156819661458
+        },
+        "causation": {
+          "n": 2,
+          "accuracy": 1.0,
+          "mean_margin": 1.4525091291307568
+        },
+        "christology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.26066322326660174
+        },
+        "conscience": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 2.199088287353516
+        },
+        "evil": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.9626945234771469
+        },
+        "faculties": {
+          "n": 2,
+          "accuracy": 1.0,
+          "mean_margin": 0.716333389282227
+        },
+        "grace_faith": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.2477083841959642
+        },
+        "grace_merit": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.7539787292480469
+        },
+        "grace_nature": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.4341913859049482
+        },
+        "justification": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.9485968849875714
+        },
+        "metaphysics": {
+          "n": 5,
+          "accuracy": 1.0,
+          "mean_margin": 1.1950772342518863
+        },
+        "morals": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.6709182739257811
+        },
+        "natural_law": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 2.2910782111870063
+        },
+        "sacraments": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.7409101614294181
+        },
+        "trinity": {
+          "n": 3,
+          "accuracy": 0.6666666666666666,
+          "mean_margin": 0.8610988452440097
+        },
+        "virtue_form": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.688496780395508
+        },
+        "virtue_origin": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.3130970001220703
+        }
+      },
+      "items": [
+        {
+          "id": "dep01",
+          "category": "grace_merit",
+          "type": "doctrinal",
+          "correct_pertok": -7.259895324707031,
+          "incorrect_pertok": -8.013874053955078,
+          "correct_ntok": 6,
+          "incorrect_ntok": 6,
+          "margin": 0.7539787292480469,
+          "discriminated": 1
+        },
+        {
+          "id": "dep02",
+          "category": "grace_faith",
+          "type": "doctrinal",
+          "correct_pertok": -5.3462158203125,
+          "incorrect_pertok": -5.593924204508464,
+          "correct_ntok": 10,
+          "incorrect_ntok": 12,
+          "margin": 0.2477083841959642,
+          "discriminated": 1
+        },
+        {
+          "id": "dep03",
+          "category": "grace_nature",
+          "type": "doctrinal",
+          "correct_pertok": -4.212422688802083,
+          "incorrect_pertok": -5.646614074707031,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.4341913859049482,
+          "discriminated": 1
+        },
+        {
+          "id": "dep04",
+          "category": "virtue_form",
+          "type": "doctrinal",
+          "correct_pertok": -4.005891418457031,
+          "incorrect_pertok": -4.694388198852539,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.688496780395508,
+          "discriminated": 1
+        },
+        {
+          "id": "dep05",
+          "category": "virtue_origin",
+          "type": "doctrinal",
+          "correct_pertok": -7.137800216674805,
+          "incorrect_pertok": -7.450897216796875,
+          "correct_ntok": 8,
+          "incorrect_ntok": 10,
+          "margin": 0.3130970001220703,
+          "discriminated": 1
+        },
+        {
+          "id": "dep06",
+          "category": "justification",
+          "type": "doctrinal",
+          "correct_pertok": -5.697112343528054,
+          "incorrect_pertok": -6.645709228515625,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 0.9485968849875714,
+          "discriminated": 1
+        },
+        {
+          "id": "evl01",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -4.515777587890625,
+          "incorrect_pertok": -4.774540710449219,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 0.2587631225585936,
+          "discriminated": 1
+        },
+        {
+          "id": "evl02",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -4.677553812662761,
+          "incorrect_pertok": -5.999044799804688,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 1.3214909871419271,
+          "discriminated": 1
+        },
+        {
+          "id": "evl03",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -4.58494626558744,
+          "incorrect_pertok": -5.8927757263183596,
+          "correct_ntok": 13,
+          "incorrect_ntok": 10,
+          "margin": 1.30782946073092,
+          "discriminated": 1
+        },
+        {
+          "id": "fac01",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -4.280917576381138,
+          "incorrect_pertok": -5.505667550223214,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": 1.2247499738420764,
+          "discriminated": 1
+        },
+        {
+          "id": "fac02",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -4.862505231584821,
+          "incorrect_pertok": -5.070422036307199,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": 0.2079168047223776,
+          "discriminated": 1
+        },
+        {
+          "id": "met01",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -6.407239278157552,
+          "incorrect_pertok": -8.70866478814019,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 2.3014255099826384,
+          "discriminated": 1
+        },
+        {
+          "id": "met02",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -5.035408867730035,
+          "incorrect_pertok": -7.031372494167751,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.9959636264377165,
+          "discriminated": 1
+        },
+        {
+          "id": "met03",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -9.24873267279731,
+          "incorrect_pertok": -9.441211276584202,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.19247860378689197,
+          "discriminated": 1
+        },
+        {
+          "id": "met04",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -4.54033317565918,
+          "incorrect_pertok": -5.457470321655274,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.9171371459960938,
+          "discriminated": 1
+        },
+        {
+          "id": "met05",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -5.502864544208233,
+          "incorrect_pertok": -6.071245829264323,
+          "correct_ntok": 13,
+          "incorrect_ntok": 12,
+          "margin": 0.5683812850560903,
+          "discriminated": 1
+        },
+        {
+          "id": "cau01",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -4.768981170654297,
+          "incorrect_pertok": -6.05746113170277,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 1.2884799610484725,
+          "discriminated": 1
+        },
+        {
+          "id": "cau02",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -7.193385314941406,
+          "incorrect_pertok": -8.809923612154448,
+          "correct_ntok": 10,
+          "incorrect_ntok": 13,
+          "margin": 1.616538297213041,
+          "discriminated": 1
+        },
+        {
+          "id": "chr01",
+          "category": "christology",
+          "type": "doctrinal",
+          "correct_pertok": -5.725254058837891,
+          "incorrect_pertok": -5.985917282104492,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 0.26066322326660174,
+          "discriminated": 1
+        },
+        {
+          "id": "chr02",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -3.806203842163086,
+          "incorrect_pertok": -5.001666069030762,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 1.1954622268676758,
+          "discriminated": 1
+        },
+        {
+          "id": "chr03",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -3.863592668013139,
+          "incorrect_pertok": -3.7920297475961537,
+          "correct_ntok": 11,
+          "incorrect_ntok": 13,
+          "margin": -0.07156292041698542,
+          "discriminated": 0
+        },
+        {
+          "id": "chr04",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -5.932306289672852,
+          "incorrect_pertok": -7.39170351895419,
+          "correct_ntok": 12,
+          "incorrect_ntok": 11,
+          "margin": 1.4593972292813389,
+          "discriminated": 1
+        },
+        {
+          "id": "ant01",
+          "category": "anthropology",
+          "type": "doctrinal",
+          "correct_pertok": -4.569969495137532,
+          "incorrect_pertok": -6.184756808810764,
+          "correct_ntok": 12,
+          "incorrect_ntok": 9,
+          "margin": 1.614787313673232,
+          "discriminated": 1
+        },
+        {
+          "id": "ant02",
+          "category": "beatitude",
+          "type": "doctrinal",
+          "correct_pertok": -5.8513844807942705,
+          "incorrect_pertok": -5.0302276611328125,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": -0.821156819661458,
+          "discriminated": 0
+        },
+        {
+          "id": "aug01",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -5.960722351074219,
+          "incorrect_pertok": -6.937794772061435,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 0.9770724209872155,
+          "discriminated": 1
+        },
+        {
+          "id": "aug02",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -3.4475780286287008,
+          "incorrect_pertok": -3.702753970497533,
+          "correct_ntok": 19,
+          "incorrect_ntok": 19,
+          "margin": 0.2551759418688322,
+          "discriminated": 1
+        },
+        {
+          "id": "aug03",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -8.816740417480469,
+          "incorrect_pertok": -9.837892012162643,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 1.0211515946821734,
+          "discriminated": 1
+        },
+        {
+          "id": "aug04",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -5.268759409586589,
+          "incorrect_pertok": -5.985228220621745,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 0.7164688110351562,
+          "discriminated": 1
+        },
+        {
+          "id": "sac01",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -3.0390693119594028,
+          "incorrect_pertok": -3.7444240863506613,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 0.7053547743912585,
+          "discriminated": 1
+        },
+        {
+          "id": "sac02",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -4.872088623046875,
+          "incorrect_pertok": -5.053751627604167,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.18166300455729179,
+          "discriminated": 1
+        },
+        {
+          "id": "sac03",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -4.779077529907227,
+          "incorrect_pertok": -6.1147902352469305,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": 1.335712705339704,
+          "discriminated": 1
+        },
+        {
+          "id": "mor01",
+          "category": "natural_law",
+          "type": "doctrinal",
+          "correct_pertok": -5.0853473118373325,
+          "incorrect_pertok": -7.376425523024339,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 2.2910782111870063,
+          "discriminated": 1
+        },
+        {
+          "id": "mor02",
+          "category": "conscience",
+          "type": "doctrinal",
+          "correct_pertok": -5.115559387207031,
+          "incorrect_pertok": -7.314647674560547,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 2.199088287353516,
+          "discriminated": 1
+        },
+        {
+          "id": "mor03",
+          "category": "morals",
+          "type": "doctrinal",
+          "correct_pertok": -3.8665695190429688,
+          "incorrect_pertok": -4.53748779296875,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.6709182739257811,
+          "discriminated": 1
+        },
+        {
+          "id": "anc01",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -3.613562150435014,
+          "incorrect_pertok": -5.729933547973633,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 2.1163713975386185,
+          "discriminated": 1
+        },
+        {
+          "id": "anc02",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -7.131461552211216,
+          "incorrect_pertok": -6.770930767059326,
+          "correct_ntok": 7,
+          "incorrect_ntok": 8,
+          "margin": -0.36053078515188997,
+          "discriminated": 0
+        },
+        {
+          "id": "anc03",
+          "category": "anchor_epithet",
+          "type": "factual_anchor",
+          "correct_pertok": -4.668355560302734,
+          "incorrect_pertok": -6.783976236979167,
+          "correct_ntok": 10,
+          "incorrect_ntok": 9,
+          "margin": 2.115620676676433,
+          "discriminated": 1
+        },
+        {
+          "id": "anc04",
+          "category": "anchor_bio",
+          "type": "factual_anchor",
+          "correct_pertok": -5.188157399495442,
+          "incorrect_pertok": -5.5156700134277346,
+          "correct_ntok": 9,
+          "incorrect_ntok": 10,
+          "margin": 0.32751261393229214,
+          "discriminated": 1
+        },
+        {
+          "id": "anc05",
+          "category": "anchor_structure",
+          "type": "factual_anchor",
+          "correct_pertok": -4.116402626037598,
+          "incorrect_pertok": -5.503166707356771,
+          "correct_ntok": 16,
+          "incorrect_ntok": 15,
+          "margin": 1.386764081319173,
+          "discriminated": 1
+        }
+      ]
+    },
+    "sft-v1": {
+      "adapter": "adapters/scholastic-v1",
+      "doctrinal": {
+        "n": 34,
+        "accuracy": 0.9705882352941176,
+        "mean_margin": 1.0241445866904715,
+        "margin_ci": [
+          0.796558162203037,
+          1.2566586658330976
+        ]
+      },
+      "anchor": {
+        "n": 5,
+        "accuracy": 0.8,
+        "mean_margin": 0.4751657027702828
+      },
+      "per_category": {
+        "anthropology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.0036628511216907
+        },
+        "augustine": {
+          "n": 4,
+          "accuracy": 1.0,
+          "mean_margin": 0.7117027392227683
+        },
+        "beatitude": {
+          "n": 1,
+          "accuracy": 0.0,
+          "mean_margin": -0.03477732340494777
+        },
+        "causation": {
+          "n": 2,
+          "accuracy": 1.0,
+          "mean_margin": 2.273618546732656
+        },
+        "christology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.856308174133301
+        },
+        "conscience": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 2.8335441589355463
+        },
+        "evil": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 1.0349785648396337
+        },
+        "faculties": {
+          "n": 2,
+          "accuracy": 1.0,
+          "mean_margin": 0.7643262999398368
+        },
+        "grace_faith": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.9924226760864259
+        },
+        "grace_merit": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.4333839416503906
+        },
+        "grace_nature": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.6057408650716147
+        },
+        "justification": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.3931961059570312
+        },
+        "metaphysics": {
+          "n": 5,
+          "accuracy": 1.0,
+          "mean_margin": 0.8886159329536631
+        },
+        "morals": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.29156799316406223
+        },
+        "natural_law": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 2.5035322419889674
+        },
+        "sacraments": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.6541301380292547
+        },
+        "trinity": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 1.0747586856447826
+        },
+        "virtue_form": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.9759252548217776
+        },
+        "virtue_origin": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.309026527404785
+        }
+      },
+      "items": [
+        {
+          "id": "dep01",
+          "category": "grace_merit",
+          "type": "doctrinal",
+          "correct_pertok": -4.865727424621582,
+          "incorrect_pertok": -5.299111366271973,
+          "correct_ntok": 6,
+          "incorrect_ntok": 6,
+          "margin": 0.4333839416503906,
+          "discriminated": 1
+        },
+        {
+          "id": "dep02",
+          "category": "grace_faith",
+          "type": "doctrinal",
+          "correct_pertok": -3.018687629699707,
+          "incorrect_pertok": -4.011110305786133,
+          "correct_ntok": 10,
+          "incorrect_ntok": 12,
+          "margin": 0.9924226760864259,
+          "discriminated": 1
+        },
+        {
+          "id": "dep03",
+          "category": "grace_nature",
+          "type": "doctrinal",
+          "correct_pertok": -2.711000018649631,
+          "incorrect_pertok": -3.3167408837212458,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.6057408650716147,
+          "discriminated": 1
+        },
+        {
+          "id": "dep04",
+          "category": "virtue_form",
+          "type": "doctrinal",
+          "correct_pertok": -2.167007255554199,
+          "incorrect_pertok": -3.1429325103759767,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.9759252548217776,
+          "discriminated": 1
+        },
+        {
+          "id": "dep05",
+          "category": "virtue_origin",
+          "type": "doctrinal",
+          "correct_pertok": -3.1865053176879883,
+          "incorrect_pertok": -4.495531845092773,
+          "correct_ntok": 8,
+          "incorrect_ntok": 10,
+          "margin": 1.309026527404785,
+          "discriminated": 1
+        },
+        {
+          "id": "dep06",
+          "category": "justification",
+          "type": "doctrinal",
+          "correct_pertok": -3.91363525390625,
+          "incorrect_pertok": -5.306831359863281,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 1.3931961059570312,
+          "discriminated": 1
+        },
+        {
+          "id": "evl01",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -3.0969845164905894,
+          "incorrect_pertok": -3.2109130859375,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 0.11392856944691054,
+          "discriminated": 1
+        },
+        {
+          "id": "evl02",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -3.153317133585612,
+          "incorrect_pertok": -4.774921417236328,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 1.6216042836507163,
+          "discriminated": 1
+        },
+        {
+          "id": "evl03",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -2.741456838754507,
+          "incorrect_pertok": -4.110859680175781,
+          "correct_ntok": 13,
+          "incorrect_ntok": 10,
+          "margin": 1.369402841421274,
+          "discriminated": 1
+        },
+        {
+          "id": "fac01",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -2.078387805393764,
+          "incorrect_pertok": -3.295342581612723,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": 1.2169547762189592,
+          "discriminated": 1
+        },
+        {
+          "id": "fac02",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -2.9696551731654575,
+          "incorrect_pertok": -3.281352996826172,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": 0.3116978236607144,
+          "discriminated": 1
+        },
+        {
+          "id": "met01",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -3.046882841322157,
+          "incorrect_pertok": -4.497074127197266,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.4501912858751087,
+          "discriminated": 1
+        },
+        {
+          "id": "met02",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.9264144897460938,
+          "incorrect_pertok": -4.2200775146484375,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.2936630249023438,
+          "discriminated": 1
+        },
+        {
+          "id": "met03",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -5.158779991997613,
+          "incorrect_pertok": -5.245675828721788,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.08689583672417545,
+          "discriminated": 1
+        },
+        {
+          "id": "met04",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -1.5053693771362304,
+          "incorrect_pertok": -2.290058898925781,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.7846895217895506,
+          "discriminated": 1
+        },
+        {
+          "id": "met05",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.73117182804988,
+          "incorrect_pertok": -3.558811823527018,
+          "correct_ntok": 13,
+          "incorrect_ntok": 12,
+          "margin": 0.8276399954771381,
+          "discriminated": 1
+        },
+        {
+          "id": "cau01",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -2.0524166107177733,
+          "incorrect_pertok": -4.160571705211293,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 2.1081550944935197,
+          "discriminated": 1
+        },
+        {
+          "id": "cau02",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -3.1326284408569336,
+          "incorrect_pertok": -5.571710439828726,
+          "correct_ntok": 10,
+          "incorrect_ntok": 13,
+          "margin": 2.4390819989717922,
+          "discriminated": 1
+        },
+        {
+          "id": "chr01",
+          "category": "christology",
+          "type": "doctrinal",
+          "correct_pertok": -2.889418601989746,
+          "incorrect_pertok": -3.745726776123047,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 0.856308174133301,
+          "discriminated": 1
+        },
+        {
+          "id": "chr02",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -1.7656982739766438,
+          "incorrect_pertok": -2.8410495122273765,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 1.0753512382507326,
+          "discriminated": 1
+        },
+        {
+          "id": "chr03",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -0.9249390688809481,
+          "incorrect_pertok": -1.8691228719858022,
+          "correct_ntok": 11,
+          "incorrect_ntok": 13,
+          "margin": 0.9441838031048541,
+          "discriminated": 1
+        },
+        {
+          "id": "chr04",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -2.938365618387858,
+          "incorrect_pertok": -4.143106633966619,
+          "correct_ntok": 12,
+          "incorrect_ntok": 11,
+          "margin": 1.2047410155787612,
+          "discriminated": 1
+        },
+        {
+          "id": "ant01",
+          "category": "anthropology",
+          "type": "doctrinal",
+          "correct_pertok": -2.605273882548014,
+          "incorrect_pertok": -3.608936733669705,
+          "correct_ntok": 12,
+          "incorrect_ntok": 9,
+          "margin": 1.0036628511216907,
+          "discriminated": 1
+        },
+        {
+          "id": "ant02",
+          "category": "beatitude",
+          "type": "doctrinal",
+          "correct_pertok": -2.830755869547526,
+          "incorrect_pertok": -2.795978546142578,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": -0.03477732340494777,
+          "discriminated": 0
+        },
+        {
+          "id": "aug01",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.880702781677246,
+          "incorrect_pertok": -3.634283585981889,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 0.7535808043046432,
+          "discriminated": 1
+        },
+        {
+          "id": "aug02",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.39012989244963,
+          "incorrect_pertok": -2.6547923840974508,
+          "correct_ntok": 19,
+          "incorrect_ntok": 19,
+          "margin": 0.26466249164782063,
+          "discriminated": 1
+        },
+        {
+          "id": "aug03",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -3.311614227294922,
+          "incorrect_pertok": -4.26717792857777,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 0.9555637012828475,
+          "discriminated": 1
+        },
+        {
+          "id": "aug04",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -3.739269256591797,
+          "incorrect_pertok": -4.612273216247559,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 0.8730039596557617,
+          "discriminated": 1
+        },
+        {
+          "id": "sac01",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -1.4937693732125419,
+          "incorrect_pertok": -1.9898639092078576,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 0.4960945359953157,
+          "discriminated": 1
+        },
+        {
+          "id": "sac02",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -2.9582918802897136,
+          "incorrect_pertok": -3.087973785400391,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.12968190511067723,
+          "discriminated": 1
+        },
+        {
+          "id": "sac03",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -2.6698328653971353,
+          "incorrect_pertok": -4.006446838378906,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": 1.336613972981771,
+          "discriminated": 1
+        },
+        {
+          "id": "mor01",
+          "category": "natural_law",
+          "type": "doctrinal",
+          "correct_pertok": -1.734140123639788,
+          "incorrect_pertok": -4.237672365628756,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 2.5035322419889674,
+          "discriminated": 1
+        },
+        {
+          "id": "mor02",
+          "category": "conscience",
+          "type": "doctrinal",
+          "correct_pertok": -3.4386417388916017,
+          "incorrect_pertok": -6.272185897827148,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 2.8335441589355463,
+          "discriminated": 1
+        },
+        {
+          "id": "mor03",
+          "category": "morals",
+          "type": "doctrinal",
+          "correct_pertok": -2.3331924438476563,
+          "incorrect_pertok": -2.6247604370117186,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.29156799316406223,
+          "discriminated": 1
+        },
+        {
+          "id": "anc01",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -2.942864851518111,
+          "incorrect_pertok": -3.597274398803711,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 0.6544095472856002,
+          "discriminated": 1
+        },
+        {
+          "id": "anc02",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -4.664636884416852,
+          "incorrect_pertok": -4.498377323150635,
+          "correct_ntok": 7,
+          "incorrect_ntok": 8,
+          "margin": -0.16625956126621766,
+          "discriminated": 0
+        },
+        {
+          "id": "anc03",
+          "category": "anchor_epithet",
+          "type": "factual_anchor",
+          "correct_pertok": -2.975786018371582,
+          "incorrect_pertok": -3.6637310451931424,
+          "correct_ntok": 10,
+          "incorrect_ntok": 9,
+          "margin": 0.6879450268215606,
+          "discriminated": 1
+        },
+        {
+          "id": "anc04",
+          "category": "anchor_bio",
+          "type": "factual_anchor",
+          "correct_pertok": -3.481676525539822,
+          "incorrect_pertok": -3.8253707885742188,
+          "correct_ntok": 9,
+          "incorrect_ntok": 10,
+          "margin": 0.34369426303439665,
+          "discriminated": 1
+        },
+        {
+          "id": "anc05",
+          "category": "anchor_structure",
+          "type": "factual_anchor",
+          "correct_pertok": -2.402035713195801,
+          "incorrect_pertok": -3.258074951171875,
+          "correct_ntok": 16,
+          "incorrect_ntok": 15,
+          "margin": 0.8560392379760744,
+          "discriminated": 1
+        }
+      ]
+    },
+    "sft-v2-iter400": {
+      "adapter": "adapters/scholastic-v2-iter400",
+      "doctrinal": {
+        "n": 34,
+        "accuracy": 0.9117647058823529,
+        "mean_margin": 0.7379341241452968,
+        "margin_ci": [
+          0.5745668335197986,
+          0.9040514326506229
+        ]
+      },
+      "anchor": {
+        "n": 5,
+        "accuracy": 0.8,
+        "mean_margin": 0.4098354187672272
+      },
+      "per_category": {
+        "anthropology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.095018810696072
+        },
+        "augustine": {
+          "n": 4,
+          "accuracy": 1.0,
+          "mean_margin": 0.6412010055219538
+        },
+        "beatitude": {
+          "n": 1,
+          "accuracy": 0.0,
+          "mean_margin": -0.17384120396205338
+        },
+        "causation": {
+          "n": 2,
+          "accuracy": 1.0,
+          "mean_margin": 1.1346152058848136
+        },
+        "christology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.5729224205017092
+        },
+        "conscience": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.6217010498046873
+        },
+        "evil": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.9086373209860682
+        },
+        "faculties": {
+          "n": 2,
+          "accuracy": 0.5,
+          "mean_margin": 0.3996073859078544
+        },
+        "grace_faith": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.7540990193684896
+        },
+        "grace_merit": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.44942188262939453
+        },
+        "grace_nature": {
+          "n": 1,
+          "accuracy": 0.0,
+          "mean_margin": -0.021509382459852233
+        },
+        "justification": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.5699535716663706
+        },
+        "metaphysics": {
+          "n": 5,
+          "accuracy": 1.0,
+          "mean_margin": 0.6398072309575529
+        },
+        "morals": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.3520182291666667
+        },
+        "natural_law": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.8602043403373967
+        },
+        "sacraments": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.4841120919028481
+        },
+        "trinity": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.8309570355478332
+        },
+        "virtue_form": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.674698257446289
+        },
+        "virtue_origin": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.8316685199737552
+        }
+      },
+      "items": [
+        {
+          "id": "dep01",
+          "category": "grace_merit",
+          "type": "doctrinal",
+          "correct_pertok": -4.164443651835124,
+          "incorrect_pertok": -4.6138655344645185,
+          "correct_ntok": 6,
+          "incorrect_ntok": 6,
+          "margin": 0.44942188262939453,
+          "discriminated": 1
+        },
+        {
+          "id": "dep02",
+          "category": "grace_faith",
+          "type": "doctrinal",
+          "correct_pertok": -2.481369209289551,
+          "incorrect_pertok": -3.2354682286580405,
+          "correct_ntok": 10,
+          "incorrect_ntok": 12,
+          "margin": 0.7540990193684896,
+          "discriminated": 1
+        },
+        {
+          "id": "dep03",
+          "category": "grace_nature",
+          "type": "doctrinal",
+          "correct_pertok": -2.718572828504774,
+          "incorrect_pertok": -2.697063446044922,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": -0.021509382459852233,
+          "discriminated": 0
+        },
+        {
+          "id": "dep04",
+          "category": "virtue_form",
+          "type": "doctrinal",
+          "correct_pertok": -2.7405818939208983,
+          "incorrect_pertok": -3.4152801513671873,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.674698257446289,
+          "discriminated": 1
+        },
+        {
+          "id": "dep05",
+          "category": "virtue_origin",
+          "type": "doctrinal",
+          "correct_pertok": -3.51562762260437,
+          "incorrect_pertok": -4.347296142578125,
+          "correct_ntok": 8,
+          "incorrect_ntok": 10,
+          "margin": 0.8316685199737552,
+          "discriminated": 1
+        },
+        {
+          "id": "dep06",
+          "category": "justification",
+          "type": "doctrinal",
+          "correct_pertok": -3.2152598987926138,
+          "incorrect_pertok": -4.785213470458984,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 1.5699535716663706,
+          "discriminated": 1
+        },
+        {
+          "id": "evl01",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -2.8519027016379614,
+          "incorrect_pertok": -3.3863243103027343,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 0.5344216086647728,
+          "discriminated": 1
+        },
+        {
+          "id": "evl02",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -2.564688046773275,
+          "incorrect_pertok": -3.742914581298828,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 1.1782265345255531,
+          "discriminated": 1
+        },
+        {
+          "id": "evl03",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -2.839449955866887,
+          "incorrect_pertok": -3.852713775634766,
+          "correct_ntok": 13,
+          "incorrect_ntok": 10,
+          "margin": 1.0132638197678787,
+          "discriminated": 1
+        },
+        {
+          "id": "fac01",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -2.0863394056047713,
+          "incorrect_pertok": -2.979722704206194,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": 0.8933832986014227,
+          "discriminated": 1
+        },
+        {
+          "id": "fac02",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -2.806718008858817,
+          "incorrect_pertok": -2.712549482073103,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": -0.09416852678571397,
+          "discriminated": 0
+        },
+        {
+          "id": "met01",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.81701299879286,
+          "incorrect_pertok": -4.284964667426215,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.4679516686333551,
+          "discriminated": 1
+        },
+        {
+          "id": "met02",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.6093660990397134,
+          "incorrect_pertok": -3.444636450873481,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.8352703518337674,
+          "discriminated": 1
+        },
+        {
+          "id": "met03",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -4.698905097113715,
+          "incorrect_pertok": -4.780011494954427,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.08110639784071161,
+          "discriminated": 1
+        },
+        {
+          "id": "met04",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.1905208587646485,
+          "incorrect_pertok": -2.535735511779785,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.34521465301513654,
+          "discriminated": 1
+        },
+        {
+          "id": "met05",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -3.185117868276743,
+          "incorrect_pertok": -3.6546109517415366,
+          "correct_ntok": 13,
+          "incorrect_ntok": 12,
+          "margin": 0.4694930834647937,
+          "discriminated": 1
+        },
+        {
+          "id": "cau01",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -2.2257652282714844,
+          "incorrect_pertok": -3.17293964732777,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 0.9471744190562856,
+          "discriminated": 1
+        },
+        {
+          "id": "cau02",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -3.757830810546875,
+          "incorrect_pertok": -5.079886803260217,
+          "correct_ntok": 10,
+          "incorrect_ntok": 13,
+          "margin": 1.3220559927133415,
+          "discriminated": 1
+        },
+        {
+          "id": "chr01",
+          "category": "christology",
+          "type": "doctrinal",
+          "correct_pertok": -2.3427882194519043,
+          "incorrect_pertok": -2.9157106399536135,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 0.5729224205017092,
+          "discriminated": 1
+        },
+        {
+          "id": "chr02",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -1.8278460502624512,
+          "incorrect_pertok": -2.469536622365316,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 0.6416905721028647,
+          "discriminated": 1
+        },
+        {
+          "id": "chr03",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -1.4833186756480823,
+          "incorrect_pertok": -2.11195916395921,
+          "correct_ntok": 11,
+          "incorrect_ntok": 13,
+          "margin": 0.6286404883111276,
+          "discriminated": 1
+        },
+        {
+          "id": "chr04",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -2.3123547236124673,
+          "incorrect_pertok": -3.5348947698419746,
+          "correct_ntok": 12,
+          "incorrect_ntok": 11,
+          "margin": 1.2225400462295073,
+          "discriminated": 1
+        },
+        {
+          "id": "ant01",
+          "category": "anthropology",
+          "type": "doctrinal",
+          "correct_pertok": -2.079921086629232,
+          "incorrect_pertok": -3.174939897325304,
+          "correct_ntok": 12,
+          "incorrect_ntok": 9,
+          "margin": 1.095018810696072,
+          "discriminated": 1
+        },
+        {
+          "id": "ant02",
+          "category": "beatitude",
+          "type": "doctrinal",
+          "correct_pertok": -2.9399185180664062,
+          "incorrect_pertok": -2.766077314104353,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": -0.17384120396205338,
+          "discriminated": 0
+        },
+        {
+          "id": "aug01",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.8429658889770506,
+          "incorrect_pertok": -3.9228363037109375,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 1.079870414733887,
+          "discriminated": 1
+        },
+        {
+          "id": "aug02",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.367387470446135,
+          "incorrect_pertok": -2.550539117110403,
+          "correct_ntok": 19,
+          "incorrect_ntok": 19,
+          "margin": 0.18315164666426798,
+          "discriminated": 1
+        },
+        {
+          "id": "aug03",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.866434860229492,
+          "incorrect_pertok": -3.73567719893022,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 0.8692423387007282,
+          "discriminated": 1
+        },
+        {
+          "id": "aug04",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.665053685506185,
+          "incorrect_pertok": -3.097593307495117,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 0.43253962198893214,
+          "discriminated": 1
+        },
+        {
+          "id": "sac01",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -1.591611317225865,
+          "incorrect_pertok": -2.0978976029616137,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 0.5062862857357486,
+          "discriminated": 1
+        },
+        {
+          "id": "sac02",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -2.5224568684895834,
+          "incorrect_pertok": -2.7995198567708335,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.2770629882812501,
+          "discriminated": 1
+        },
+        {
+          "id": "sac03",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -2.8879737854003906,
+          "incorrect_pertok": -3.556960787091936,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": 0.6689870016915456,
+          "discriminated": 1
+        },
+        {
+          "id": "mor01",
+          "category": "natural_law",
+          "type": "doctrinal",
+          "correct_pertok": -1.8210841587611608,
+          "incorrect_pertok": -3.6812884990985575,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 1.8602043403373967,
+          "discriminated": 1
+        },
+        {
+          "id": "mor02",
+          "category": "conscience",
+          "type": "doctrinal",
+          "correct_pertok": -3.0690776824951174,
+          "incorrect_pertok": -4.690778732299805,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 1.6217010498046873,
+          "discriminated": 1
+        },
+        {
+          "id": "mor03",
+          "category": "morals",
+          "type": "doctrinal",
+          "correct_pertok": -2.187030029296875,
+          "incorrect_pertok": -2.539048258463542,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.3520182291666667,
+          "discriminated": 1
+        },
+        {
+          "id": "anc01",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -2.9033553383567114,
+          "incorrect_pertok": -2.9016584396362304,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": -0.001696898720481066,
+          "discriminated": 0
+        },
+        {
+          "id": "anc02",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -3.8479922158377513,
+          "incorrect_pertok": -4.355820655822754,
+          "correct_ntok": 7,
+          "incorrect_ntok": 8,
+          "margin": 0.5078284399850026,
+          "discriminated": 1
+        },
+        {
+          "id": "anc03",
+          "category": "anchor_epithet",
+          "type": "factual_anchor",
+          "correct_pertok": -3.03690242767334,
+          "incorrect_pertok": -3.1611046261257596,
+          "correct_ntok": 10,
+          "incorrect_ntok": 9,
+          "margin": 0.12420219845241975,
+          "discriminated": 1
+        },
+        {
+          "id": "anc04",
+          "category": "anchor_bio",
+          "type": "factual_anchor",
+          "correct_pertok": -3.223777559068468,
+          "incorrect_pertok": -3.8578540802001955,
+          "correct_ntok": 9,
+          "incorrect_ntok": 10,
+          "margin": 0.6340765211317274,
+          "discriminated": 1
+        },
+        {
+          "id": "anc05",
+          "category": "anchor_structure",
+          "type": "factual_anchor",
+          "correct_pertok": -2.384097099304199,
+          "incorrect_pertok": -3.1688639322916665,
+          "correct_ntok": 16,
+          "incorrect_ntok": 15,
+          "margin": 0.7847668329874673,
+          "discriminated": 1
+        }
+      ]
+    },
+    "dpo-v3": {
+      "adapter": "adapters/scholastic-v3-dpo",
+      "doctrinal": {
+        "n": 34,
+        "accuracy": 0.9411764705882353,
+        "mean_margin": 0.8357143684107003,
+        "margin_ci": [
+          0.6398210814371391,
+          1.0352333494551884
+        ]
+      },
+      "anchor": {
+        "n": 5,
+        "accuracy": 0.8,
+        "mean_margin": 0.4217121952161473
+      },
+      "per_category": {
+        "anthropology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.176299148135715
+        },
+        "augustine": {
+          "n": 4,
+          "accuracy": 1.0,
+          "mean_margin": 0.7265634214288691
+        },
+        "beatitude": {
+          "n": 1,
+          "accuracy": 0.0,
+          "mean_margin": -0.4214623314993724
+        },
+        "causation": {
+          "n": 2,
+          "accuracy": 1.0,
+          "mean_margin": 1.4516207761697837
+        },
+        "christology": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.8816960016886393
+        },
+        "conscience": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.7792507171630856
+        },
+        "evil": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 1.1495814192267286
+        },
+        "faculties": {
+          "n": 2,
+          "accuracy": 0.5,
+          "mean_margin": 0.39031396593366363
+        },
+        "grace_faith": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.8231538136800132
+        },
+        "grace_merit": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.13947486877441406
+        },
+        "grace_nature": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.14407073126898906
+        },
+        "justification": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 1.6153959100896662
+        },
+        "metaphysics": {
+          "n": 5,
+          "accuracy": 1.0,
+          "mean_margin": 0.7198320238814395
+        },
+        "morals": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.45245412190755196
+        },
+        "natural_law": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 2.2562681449638617
+        },
+        "sacraments": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.5117600188296065
+        },
+        "trinity": {
+          "n": 3,
+          "accuracy": 1.0,
+          "mean_margin": 0.9717424358613935
+        },
+        "virtue_form": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.8774894714355468
+        },
+        "virtue_origin": {
+          "n": 1,
+          "accuracy": 1.0,
+          "mean_margin": 0.6016630172729496
+        }
+      },
+      "items": [
+        {
+          "id": "dep01",
+          "category": "grace_merit",
+          "type": "doctrinal",
+          "correct_pertok": -4.585439682006836,
+          "incorrect_pertok": -4.72491455078125,
+          "correct_ntok": 6,
+          "incorrect_ntok": 6,
+          "margin": 0.13947486877441406,
+          "discriminated": 1
+        },
+        {
+          "id": "dep02",
+          "category": "grace_faith",
+          "type": "doctrinal",
+          "correct_pertok": -2.6676292419433594,
+          "incorrect_pertok": -3.4907830556233725,
+          "correct_ntok": 10,
+          "incorrect_ntok": 12,
+          "margin": 0.8231538136800132,
+          "discriminated": 1
+        },
+        {
+          "id": "dep03",
+          "category": "grace_nature",
+          "type": "doctrinal",
+          "correct_pertok": -2.5957376692030163,
+          "incorrect_pertok": -2.7398084004720054,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.14407073126898906,
+          "discriminated": 1
+        },
+        {
+          "id": "dep04",
+          "category": "virtue_form",
+          "type": "doctrinal",
+          "correct_pertok": -3.029364013671875,
+          "incorrect_pertok": -3.9068534851074217,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.8774894714355468,
+          "discriminated": 1
+        },
+        {
+          "id": "dep05",
+          "category": "virtue_origin",
+          "type": "doctrinal",
+          "correct_pertok": -3.8517560958862305,
+          "incorrect_pertok": -4.45341911315918,
+          "correct_ntok": 8,
+          "incorrect_ntok": 10,
+          "margin": 0.6016630172729496,
+          "discriminated": 1
+        },
+        {
+          "id": "dep06",
+          "category": "justification",
+          "type": "doctrinal",
+          "correct_pertok": -3.500325983220881,
+          "incorrect_pertok": -5.115721893310547,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 1.6153959100896662,
+          "discriminated": 1
+        },
+        {
+          "id": "evl01",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -3.0977533513849433,
+          "incorrect_pertok": -3.922826385498047,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": 0.8250730341131036,
+          "discriminated": 1
+        },
+        {
+          "id": "evl02",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -2.7932167053222656,
+          "incorrect_pertok": -4.1478118896484375,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 1.3545951843261719,
+          "discriminated": 1
+        },
+        {
+          "id": "evl03",
+          "category": "evil",
+          "type": "doctrinal",
+          "correct_pertok": -3.2221383314866285,
+          "incorrect_pertok": -4.491214370727539,
+          "correct_ntok": 13,
+          "incorrect_ntok": 10,
+          "margin": 1.2690760392409102,
+          "discriminated": 1
+        },
+        {
+          "id": "fac01",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -1.9952130998883928,
+          "incorrect_pertok": -2.878444126674107,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": 0.8832310267857144,
+          "discriminated": 1
+        },
+        {
+          "id": "fac02",
+          "category": "faculties",
+          "type": "doctrinal",
+          "correct_pertok": -2.9424405779157365,
+          "incorrect_pertok": -2.8398374829973494,
+          "correct_ntok": 14,
+          "incorrect_ntok": 14,
+          "margin": -0.10260309491838715,
+          "discriminated": 0
+        },
+        {
+          "id": "met01",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.86142455206977,
+          "incorrect_pertok": -4.612275017632379,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.7508504655626087,
+          "discriminated": 1
+        },
+        {
+          "id": "met02",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.890741136338976,
+          "incorrect_pertok": -3.950952317979601,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 1.060211181640625,
+          "discriminated": 1
+        },
+        {
+          "id": "met03",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -5.013431125217014,
+          "incorrect_pertok": -5.199829949273004,
+          "correct_ntok": 9,
+          "incorrect_ntok": 9,
+          "margin": 0.1863988240559893,
+          "discriminated": 1
+        },
+        {
+          "id": "met04",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -2.3777320861816404,
+          "incorrect_pertok": -2.53127498626709,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 0.15354290008544957,
+          "discriminated": 1
+        },
+        {
+          "id": "met05",
+          "category": "metaphysics",
+          "type": "doctrinal",
+          "correct_pertok": -3.519638941838191,
+          "incorrect_pertok": -3.9677956899007163,
+          "correct_ntok": 13,
+          "incorrect_ntok": 12,
+          "margin": 0.44815674806252526,
+          "discriminated": 1
+        },
+        {
+          "id": "cau01",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -2.327621269226074,
+          "incorrect_pertok": -3.541195956143466,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 1.2135746869173918,
+          "discriminated": 1
+        },
+        {
+          "id": "cau02",
+          "category": "causation",
+          "type": "doctrinal",
+          "correct_pertok": -3.7883575439453123,
+          "incorrect_pertok": -5.478024409367488,
+          "correct_ntok": 10,
+          "incorrect_ntok": 13,
+          "margin": 1.6896668654221756,
+          "discriminated": 1
+        },
+        {
+          "id": "chr01",
+          "category": "christology",
+          "type": "doctrinal",
+          "correct_pertok": -2.795147260030111,
+          "incorrect_pertok": -3.67684326171875,
+          "correct_ntok": 12,
+          "incorrect_ntok": 10,
+          "margin": 0.8816960016886393,
+          "discriminated": 1
+        },
+        {
+          "id": "chr02",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -1.9025452931722004,
+          "incorrect_pertok": -2.5824912389119468,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 0.6799459457397463,
+          "discriminated": 1
+        },
+        {
+          "id": "chr03",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -1.586060263893821,
+          "incorrect_pertok": -2.3675286219670224,
+          "correct_ntok": 11,
+          "incorrect_ntok": 13,
+          "margin": 0.7814683580732014,
+          "discriminated": 1
+        },
+        {
+          "id": "chr04",
+          "category": "trinity",
+          "type": "doctrinal",
+          "correct_pertok": -2.247558275858561,
+          "incorrect_pertok": -3.701371279629794,
+          "correct_ntok": 12,
+          "incorrect_ntok": 11,
+          "margin": 1.453813003771233,
+          "discriminated": 1
+        },
+        {
+          "id": "ant01",
+          "category": "anthropology",
+          "type": "doctrinal",
+          "correct_pertok": -2.135990619659424,
+          "incorrect_pertok": -3.312289767795139,
+          "correct_ntok": 12,
+          "incorrect_ntok": 9,
+          "margin": 1.176299148135715,
+          "discriminated": 1
+        },
+        {
+          "id": "ant02",
+          "category": "beatitude",
+          "type": "doctrinal",
+          "correct_pertok": -3.42501163482666,
+          "incorrect_pertok": -3.0035493033272878,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": -0.4214623314993724,
+          "discriminated": 0
+        },
+        {
+          "id": "aug01",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -3.226074981689453,
+          "incorrect_pertok": -4.3186492919921875,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 1.0925743103027346,
+          "discriminated": 1
+        },
+        {
+          "id": "aug02",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.37626125938014,
+          "incorrect_pertok": -2.6801219739412008,
+          "correct_ntok": 19,
+          "incorrect_ntok": 19,
+          "margin": 0.3038607145610608,
+          "discriminated": 1
+        },
+        {
+          "id": "aug03",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -3.2983909606933595,
+          "incorrect_pertok": -4.1401544050736865,
+          "correct_ntok": 10,
+          "incorrect_ntok": 11,
+          "margin": 0.841763444380327,
+          "discriminated": 1
+        },
+        {
+          "id": "aug04",
+          "category": "augustine",
+          "type": "doctrinal",
+          "correct_pertok": -2.8133182525634766,
+          "incorrect_pertok": -3.4813734690348306,
+          "correct_ntok": 12,
+          "incorrect_ntok": 12,
+          "margin": 0.668055216471354,
+          "discriminated": 1
+        },
+        {
+          "id": "sac01",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -1.5985731397356306,
+          "incorrect_pertok": -2.2974969423734226,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 0.698923802637792,
+          "discriminated": 1
+        },
+        {
+          "id": "sac02",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -2.7242411295572917,
+          "incorrect_pertok": -3.0055877685546877,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.281346638997396,
+          "discriminated": 1
+        },
+        {
+          "id": "sac03",
+          "category": "sacraments",
+          "type": "doctrinal",
+          "correct_pertok": -3.4472099939982095,
+          "incorrect_pertok": -4.002219608851841,
+          "correct_ntok": 12,
+          "incorrect_ntok": 14,
+          "margin": 0.5550096148536316,
+          "discriminated": 1
+        },
+        {
+          "id": "mor01",
+          "category": "natural_law",
+          "type": "doctrinal",
+          "correct_pertok": -1.8694554737636022,
+          "incorrect_pertok": -4.125723618727464,
+          "correct_ntok": 14,
+          "incorrect_ntok": 13,
+          "margin": 2.2562681449638617,
+          "discriminated": 1
+        },
+        {
+          "id": "mor02",
+          "category": "conscience",
+          "type": "doctrinal",
+          "correct_pertok": -3.432463836669922,
+          "incorrect_pertok": -5.211714553833008,
+          "correct_ntok": 10,
+          "incorrect_ntok": 10,
+          "margin": 1.7792507171630856,
+          "discriminated": 1
+        },
+        {
+          "id": "mor03",
+          "category": "morals",
+          "type": "doctrinal",
+          "correct_pertok": -2.1809722900390627,
+          "incorrect_pertok": -2.6334264119466146,
+          "correct_ntok": 15,
+          "incorrect_ntok": 15,
+          "margin": 0.45245412190755196,
+          "discriminated": 1
+        },
+        {
+          "id": "anc01",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -3.541109258478338,
+          "incorrect_pertok": -3.2875614166259766,
+          "correct_ntok": 11,
+          "incorrect_ntok": 10,
+          "margin": -0.25354784185236134,
+          "discriminated": 0
+        },
+        {
+          "id": "anc02",
+          "category": "anchor_author",
+          "type": "factual_anchor",
+          "correct_pertok": -4.272708347865513,
+          "incorrect_pertok": -5.060860633850098,
+          "correct_ntok": 7,
+          "incorrect_ntok": 8,
+          "margin": 0.7881522859845846,
+          "discriminated": 1
+        },
+        {
+          "id": "anc03",
+          "category": "anchor_epithet",
+          "type": "factual_anchor",
+          "correct_pertok": -3.554798126220703,
+          "incorrect_pertok": -3.664057837592231,
+          "correct_ntok": 10,
+          "incorrect_ntok": 9,
+          "margin": 0.10925971137152768,
+          "discriminated": 1
+        },
+        {
+          "id": "anc04",
+          "category": "anchor_bio",
+          "type": "factual_anchor",
+          "correct_pertok": -3.468448003133138,
+          "incorrect_pertok": -4.209015655517578,
+          "correct_ntok": 9,
+          "incorrect_ntok": 10,
+          "margin": 0.7405676523844398,
+          "discriminated": 1
+        },
+        {
+          "id": "anc05",
+          "category": "anchor_structure",
+          "type": "factual_anchor",
+          "correct_pertok": -2.689154624938965,
+          "incorrect_pertok": -3.4132837931315105,
+          "correct_ntok": 16,
+          "incorrect_ntok": 15,
+          "margin": 0.7241291681925457,
+          "discriminated": 1
+        }
+      ]
+    }
+  },
+  "paired_vs_base": {
+    "sft-v1": {
+      "n": 34,
+      "margin_delta": 0.09536522722843366,
+      "margin_delta_sem": 0.08378446936740458,
+      "margin_delta_ci": [
+        -0.06837695635527992,
+        0.25682459282067815
+      ],
+      "across_item_std": 0.5005781635746697,
+      "acc_base": 0.9411764705882353,
+      "acc_sft": 0.9705882352941176,
+      "acc_delta": 0.02941176470588236,
+      "acc_delta_ci": [
+        0.0,
+        0.08823529411764706
+      ],
+      "base_margin_ci": [
+        0.6927244351062647,
+        1.1658255393623576
+      ],
+      "sft_margin_ci": [
+        0.8014775067297709,
+        1.2685264757457935
+      ],
+      "exceeds_2sem": false,
+      "exceeds_2itemstd": false,
+      "ci_excludes_zero": false,
+      "cis_nonoverlap": false,
+      "verdict": "suggestive/null (within bar)"
+    },
+    "sft-v2-iter400": {
+      "n": 34,
+      "margin_delta": -0.19084523531674116,
+      "margin_delta_sem": 0.081409757711952,
+      "margin_delta_ci": [
+        -0.3505331551393509,
+        -0.032010912138414976
+      ],
+      "across_item_std": 0.4842041207555937,
+      "acc_base": 0.9411764705882353,
+      "acc_sft": 0.9117647058823529,
+      "acc_delta": -0.02941176470588236,
+      "acc_delta_ci": [
+        -0.14705882352941177,
+        0.058823529411764705
+      ],
+      "base_margin_ci": [
+        0.6927244351062647,
+        1.1658255393623576
+      ],
+      "sft_margin_ci": [
+        0.5729202139092334,
+        0.9061617237974496
+      ],
+      "exceeds_2sem": true,
+      "exceeds_2itemstd": false,
+      "ci_excludes_zero": true,
+      "cis_nonoverlap": false,
+      "verdict": "suggestive/null (within bar)"
+    },
+    "dpo-v3": {
+      "n": 34,
+      "margin_delta": -0.09306499105133745,
+      "margin_delta_sem": 0.08092723478257438,
+      "margin_delta_ci": [
+        -0.25279032086962944,
+        0.06583951888198165
+      ],
+      "across_item_std": 0.47964702509610607,
+      "acc_base": 0.9411764705882353,
+      "acc_sft": 0.9411764705882353,
+      "acc_delta": 0.0,
+      "acc_delta_ci": [
+        -0.08823529411764706,
+        0.08823529411764706
+      ],
+      "base_margin_ci": [
+        0.6927244351062647,
+        1.1658255393623576
+      ],
+      "sft_margin_ci": [
+        0.6408735157584177,
+        1.0343312426202922
+      ],
+      "exceeds_2sem": false,
+      "exceeds_2itemstd": false,
+      "ci_excludes_zero": false,
+      "cis_nonoverlap": false,
+      "verdict": "suggestive/null (within bar)"
+    }
+  },
+  "shuffle_control": {
+    "base_doctrinal_shuffled_accuracy": 0.5,
+    "note": "should be ~0.5"
+  }
+}

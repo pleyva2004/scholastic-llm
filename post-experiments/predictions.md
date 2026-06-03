@@ -84,6 +84,49 @@ H1 effect isn't averaged away or, conversely, cherry-picked post hoc.
 
 ## Outcomes (appended post-hoc only — do not edit predictions above)
 
-<!-- Append a dated block here after the run: per-condition accuracy & margin
-     ± CI, anchor floor, shuffle control, voice rubric, and confirmed /
-     disconfirmed / ambiguous vs. the prediction above. -->
+### 2026-06-03 — Run on probe set (commit of results follows this block)
+
+**Controls (pipeline valid):** label-shuffle = **0.500** (no leakage); base
+factual-anchor accuracy = **0.800 (4/5)** — the single miss (`anc02`,
+"Augustine wrote the Confessions", a name-swap) is identical across *all*
+conditions, a base tokenization/frequency artifact, not adapter forgetting.
+
+**Understanding — doctrinal set (n=34), per-token margin Δ:**
+
+| condition | disc. acc | mean margin | 95% CI |
+|---|---|---|---|
+| base (C0) | 0.941 | **+0.929** | [+0.691, +1.166] |
+| sft-v1 (C1) | 0.971 | +1.024 | [+0.797, +1.257] |
+| sft-v2-iter400 (C2) | 0.912 | **+0.738** | [+0.575, +0.904] |
+| dpo-v3 (C3) | 0.941 | +0.836 | [+0.640, +1.035] |
+
+**Paired vs base (doctrinal):** C1 Δmargin +0.095 (CI [−0.068,+0.257], null);
+**C2 Δmargin −0.191 (CI [−0.350,−0.032], paired CI excludes 0, >2·SEM, but base/SFT
+margin CIs OVERLAP)**; C3 Δmargin −0.093 (null). Δaccuracy ≈ 0 everywhere
+(+0.029 / −0.029 / 0.000), at a base ceiling of 0.94.
+
+**Voice positive control — rubric /12 (n=6):** base **1.33** → sft-v1 **6.67**
+→ sft-v2-iter400 **7.83** → dpo-v3 7.33. Sharp, dose-responsive. Intervention is
+potent.
+
+**VERDICT — prediction CONFIRMED (H0, orthogonality).** Voice rose ~6× with a
+clean dose-response; the doctrinal *discriminator* (accuracy) did not move
+(ceiling, base already 0.941); the *companion* margin did not rise (refutes H1)
+and its small C2 decrease did **not** clear the pre-committed confirmation
+conjunction (unpaired CIs overlap). Per the **pre-committed ambiguous-case rule**,
+the discriminator is the verdict → **flat → H0**, and the margin decrease is
+logged as an **unexplained sub-threshold secondary** (a localized *M_override*
+hint), not a confirmed effect.
+
+**Where I was right / wrong (calibration):**
+- Right: H0 headline at ~70% prior — confirmed. Right: voice ↑ sharply; anchors
+  no forgetting; base already a strong theologian.
+- Wrong/surprising: I expected dead-flat margin; instead the most-trained SFT
+  checkpoint *nudged margin down* (−0.19), localized to core axioms
+  (`grace_nature` flipped +1.43→−0.02; `faculties`, `metaphysics` down) and
+  partly offset by gains (`trinity` acc 0.67→1.00, `justification`,
+  `grace_faith`). Net: scattered reshuffle, not coherent H1 — consistent with
+  H0-plus-noise with a faint M_override tail. The per-category pre-commitment
+  caught a *localized* H1 (trinity) that the aggregate washed out, and a
+  localized M_override (grace_nature) — neither survives correction to a global
+  claim.
