@@ -1,0 +1,558 @@
+{
+  "d": 3584,
+  "null_std": 0.016703827619526525,
+  "bar": 0.03340765523905305,
+  "n_blocks": 28,
+  "partA": {
+    "layers": [
+      {
+        "layer": "blk00",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk01",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk02",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk03",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk04",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk05",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk06",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk07",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk08",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk09",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk10",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk11",
+        "ratio": 0.0,
+        "cos_content": 0.0,
+        "cos_content_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_content_postnorm": 0.0,
+        "cos_content_postnorm_ci": [
+          0.0,
+          0.0
+        ],
+        "cos_style": 0.0,
+        "dM": 0.0,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk12",
+        "ratio": 0.039190104408321436,
+        "cos_content": 0.0004477115225144719,
+        "cos_content_ci": [
+          -0.005227524077239339,
+          0.0063821780892902615
+        ],
+        "cos_content_postnorm": -0.0003316077308424036,
+        "cos_content_postnorm_ci": [
+          -0.00619579495769022,
+          0.005454808515011957
+        ],
+        "cos_style": -0.024680819896970626,
+        "dM": -0.005781711489744412,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk13",
+        "ratio": 0.061055452626847986,
+        "cos_content": -0.0015823155047510098,
+        "cos_content_ci": [
+          -0.009041261054923587,
+          0.005638999233923941
+        ],
+        "cos_content_postnorm": -0.0013076481425896565,
+        "cos_content_postnorm_ci": [
+          -0.007752240371378822,
+          0.004876507129597313
+        ],
+        "cos_style": -0.035231305025522054,
+        "dM": -0.019910993106722584,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk14",
+        "ratio": 0.09202361618826044,
+        "cos_content": 0.0026305539734235123,
+        "cos_content_ci": [
+          -0.005100064258506448,
+          0.009689638334117573
+        ],
+        "cos_content_postnorm": 0.0020759997214879968,
+        "cos_content_postnorm_ci": [
+          -0.004580917522395122,
+          0.0082148083740861
+        ],
+        "cos_style": -0.031981870690555594,
+        "dM": 0.039045922097886356,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk15",
+        "ratio": 0.10208741707503047,
+        "cos_content": 0.0021454823836993754,
+        "cos_content_ci": [
+          -0.006064677434577862,
+          0.009752083862362143
+        ],
+        "cos_content_postnorm": 0.0013649154358995861,
+        "cos_content_postnorm_ci": [
+          -0.005560494733485086,
+          0.007842147881986037
+        ],
+        "cos_style": -0.0228453950345665,
+        "dM": 0.0326868199550975,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk16",
+        "ratio": 0.11392978534553352,
+        "cos_content": -0.0012826248348285294,
+        "cos_content_ci": [
+          -0.007378099443818565,
+          0.004766128767349785
+        ],
+        "cos_content_postnorm": -0.0016725737068385197,
+        "cos_content_postnorm_ci": [
+          -0.007471761244003798,
+          0.0041594674930674974
+        ],
+        "cos_style": -0.018677849018562967,
+        "dM": -0.029285449023822307,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk17",
+        "ratio": 0.12185660128220104,
+        "cos_content": 0.0002946469484260127,
+        "cos_content_ci": [
+          -0.007713279857148107,
+          0.008562499844702847
+        ],
+        "cos_content_postnorm": -3.0310852038154413e-05,
+        "cos_content_postnorm_ci": [
+          -0.007410924984750422,
+          0.00774753307255301
+        ],
+        "cos_style": -0.02228093748911151,
+        "dM": 0.00802092420318809,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk18",
+        "ratio": 0.12713942624078223,
+        "cos_content": 0.0021264173959245,
+        "cos_content_ci": [
+          -0.005642619032363949,
+          0.00987767096288674
+        ],
+        "cos_content_postnorm": 0.0021673317375509146,
+        "cos_content_postnorm_ci": [
+          -0.005471782253734479,
+          0.009810252886457638
+        ],
+        "cos_style": -0.015532350331251183,
+        "dM": 0.07442733442604313,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk19",
+        "ratio": 0.15942893327541965,
+        "cos_content": 0.004737398881025563,
+        "cos_content_ci": [
+          -0.0033117266925110317,
+          0.01292801925490573
+        ],
+        "cos_content_postnorm": 0.0036338129458666824,
+        "cos_content_postnorm_ci": [
+          -0.0042118185988906445,
+          0.01184016091095056
+        ],
+        "cos_style": -0.0007810629519347132,
+        "dM": 0.1448308993023148,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk20",
+        "ratio": 0.1772637164829835,
+        "cos_content": 0.0032946004924703925,
+        "cos_content_ci": [
+          -0.0045837314026293255,
+          0.010809466720568966
+        ],
+        "cos_content_postnorm": 0.0023687326654975686,
+        "cos_content_postnorm_ci": [
+          -0.005735298940464313,
+          0.010283887332814804
+        ],
+        "cos_style": 0.006034194616713834,
+        "dM": 0.09498556673675489,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk21",
+        "ratio": 0.18256493260203163,
+        "cos_content": 0.00402815769749627,
+        "cos_content_ci": [
+          -0.003623044954949539,
+          0.011464348274314539
+        ],
+        "cos_content_postnorm": 0.002432187094981493,
+        "cos_content_postnorm_ci": [
+          -0.005572195784650395,
+          0.01054428203570919
+        ],
+        "cos_style": 0.004932484806211205,
+        "dM": 0.1053179172555037,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk22",
+        "ratio": 0.20270027126826293,
+        "cos_content": 0.005300726032286043,
+        "cos_content_ci": [
+          -0.001466004518634029,
+          0.012697669313065024
+        ],
+        "cos_content_postnorm": 0.0024484231063473796,
+        "cos_content_postnorm_ci": [
+          -0.004893024630607242,
+          0.010014591837199688
+        ],
+        "cos_style": 0.029221661947801857,
+        "dM": 0.11971009095865288,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk23",
+        "ratio": 0.2118084241590818,
+        "cos_content": 0.004519774959540741,
+        "cos_content_ci": [
+          -0.0030046644385064206,
+          0.012316993969119883
+        ],
+        "cos_content_postnorm": -2.3919130820183702e-05,
+        "cos_content_postnorm_ci": [
+          -0.007472665183138864,
+          0.0074352969506423245
+        ],
+        "cos_style": 0.029486671915724804,
+        "dM": 0.003506863326150622,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk24",
+        "ratio": 0.23077468867616235,
+        "cos_content": 0.008520155610360557,
+        "cos_content_ci": [
+          -0.002327806409321791,
+          0.019387569636809
+        ],
+        "cos_content_postnorm": 0.003709840887523557,
+        "cos_content_postnorm_ci": [
+          -0.006699770440107287,
+          0.013862071581024408
+        ],
+        "cos_style": 0.03869848660382838,
+        "dM": 0.17016985896608572,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk25",
+        "ratio": 0.24848345370178423,
+        "cos_content": 0.009746442286955467,
+        "cos_content_ci": [
+          -0.004517636172032222,
+          0.02333663191998578
+        ],
+        "cos_content_postnorm": 0.002923749864282518,
+        "cos_content_postnorm_ci": [
+          -0.010886944272170726,
+          0.015943859922784336
+        ],
+        "cos_style": 0.03262287536879398,
+        "dM": 0.1324730893965857,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk26",
+        "ratio": 0.2859654879246213,
+        "cos_content": 0.006988868305301756,
+        "cos_content_ci": [
+          -0.004600465713933501,
+          0.018284736927024856
+        ],
+        "cos_content_postnorm": 0.004312783222639931,
+        "cos_content_postnorm_ci": [
+          -0.00634445583449416,
+          0.01456107808749602
+        ],
+        "cos_style": 0.07731538557600037,
+        "dM": 0.23287334074908966,
+        "orthogonal": true
+      },
+      {
+        "layer": "blk27",
+        "ratio": 0.353915299656714,
+        "cos_content": 0.0024594549672200027,
+        "cos_content_ci": [
+          -0.00883473020514264,
+          0.012854674240052119
+        ],
+        "cos_content_postnorm": -0.008682553812193882,
+        "cos_content_postnorm_ci": [
+          -0.017724140075731653,
+          -0.0002986050894482434
+        ],
+        "cos_style": -0.014465676874775549,
+        "dM": -0.5967162498593478,
+        "orthogonal": false
+      },
+      {
+        "layer": "norm",
+        "ratio": 0.25943647896099414,
+        "cos_content": -0.008764977876873987,
+        "cos_content_ci": [
+          -0.017841595310408395,
+          -0.0003838215928374214
+        ],
+        "cos_content_postnorm": -0.008764977876873987,
+        "cos_content_postnorm_ci": [
+          -0.017841595310408395,
+          -0.0003838215928374214
+        ],
+        "cos_style": 0.021530375220491515,
+        "dM": -0.6022432633355492,
+        "orthogonal": false
+      }
+    ],
+    "max_abs_cos_content_raw": 0.009746442286955467,
+    "max_abs_cos_content_postnorm": 0.008764977876873987,
+    "all_layers_orthogonal": false,
+    "directional_content_movement": false,
+    "verdict": "H_throughout (orthogonal at every layer; \u0394M wobble is norm-scale only)"
+  },
+  "partB": {
+    "within_frame_pairwise_cos": [
+      0.36329101110374207,
+      0.3607461661527459,
+      0.3411957299971806,
+      0.3427766951533707,
+      0.3273818368683038
+    ],
+    "frame_mean_cos_matrix": [
+      [
+        0.9999999999999998,
+        0.8875884160923474,
+        0.8322561529637365,
+        0.8990483868996667,
+        0.9162776937434105
+      ],
+      [
+        0.8875884160923474,
+        0.9999999999999996,
+        0.9474461047455205,
+        0.9637852977685027,
+        0.827576591629138
+      ],
+      [
+        0.8322561529637365,
+        0.9474461047455205,
+        0.9999999999999992,
+        0.9551039027888116,
+        0.7770376598897338
+      ],
+      [
+        0.8990483868996667,
+        0.9637852977685027,
+        0.9551039027888116,
+        0.9999999999999996,
+        0.8280444788762774
+      ],
+      [
+        0.9162776937434105,
+        0.827576591629138,
+        0.7770376598897338,
+        0.8280444788762774,
+        0.9999999999999996
+      ]
+    ],
+    "min_frame_mean_cos": 0.7770376598897338,
+    "cross_frame_cross_stmt_cos": 0.3126122227883531,
+    "frame_independent": true,
+    "verdict": "H_style (shared shift frame-independent)"
+  }
+}

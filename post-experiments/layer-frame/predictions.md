@@ -59,6 +59,41 @@ response."
 
 ## Outcomes (appended post-hoc only)
 
-<!-- dated block: per-layer cos_content/cos_style/ratio/ΔM trajectory; frame
-     mean-δh cos matrix, within/cross pairwise cos; verdict vs H_throughout/H_cancel
-     and H_style/H_frame -->
+### 2026-06-03 — Run (results commit follows this block)
+
+**Part A — layer-resolved → H_throughout (CONFIRMED).**
+`cos(δh^(ℓ), Δu)` is within the null at **every** LoRA layer (blocks 12–27) and the
+norm: max |cos| = **0.0097 (raw)** / **0.0088 (post-norm)**, both ≪ bar 0.033; every
+per-layer CI ∋ 0 (except the norm layer, −0.0088, barely). `‖δh^(ℓ)‖/‖h^(ℓ)‖` is
+exactly 0 on the frozen blocks 0–11, then rises 0.04→0.39 across 12–27. **Style
+write concentrates late** as predicted: `cos(δh^(ℓ), r_style)` is ≈0/slightly
+negative through blk18, then climbs to a peak **+0.077 at blk26**.
+
+*Ambiguity I pre-registered a co-metric for, and how I resolved it:* my secondary
+signal `ΔM^(ℓ)` (logit-lens partial margin) **did** go positive mid-stack
+(+0.23 at blk26) before crashing to −0.60 — which would, read naively, fire
+H_cancel. But the **primary** discriminator (raw `cos(δh^(ℓ),Δu)`) was ≈0 at those
+same layers. I added a tiebreaker — the **post-norm displacement cosine**
+`cos(dn^(ℓ),Δu)`, `dn=norm(h_sft)−norm(h_base)` — to ask whether the ΔM bump is
+*directional* content movement or *scale*. It is **scale**: post-norm content cos
+stays ≤0.0043 at every bumped layer, so the +0.23 ΔM is the same small-cos×large-norm
+leakage seen at the readout (RMSNorm rescales the base's large pre-existing content
+projection). `directional_content_movement = False`. **Verdict stands: orthogonal at
+every layer; the margin wobble is a norm-magnitude effect, not content rotation.**
+(Honest note: the post-norm cos was added *after* seeing the bump — it is a
+disambiguating control for an ambiguous pre-registered co-metric, not a changed
+hypothesis; the pre-registered *primary* (raw cos) already gave H_throughout.)
+
+**Part B — frame-control → H_style (CONFIRMED, decisively).**
+Within-frame pairwise cos is ~0.34 for **all 5 frames** (0.363, 0.361, 0.341,
+0.343, 0.327) — the 0.36 was never special to the theology frame. Per-frame
+mean-`δh` vectors are nearly identical across frames (cos **0.78–0.96**, min 0.777
+≫ 0.4 bar). The strictest **cross-frame × cross-statement** pairwise cos = **+0.313**
+— barely below within-frame and ~19× null. The shared register direction is
+**frame-independent**; the confound is killed. (Calibration: I predicted the cross
+metric would drop to ~0.15–0.25; it only dropped to 0.31 — **more** frame-independent
+than I expected.)
+
+**Net:** both math-test soft spots are closed. The displacement is content-orthogonal
+**at every depth**, not just the readout; and its content-independent shared
+direction is a genuine register vector, **not** a shared-frame artifact.
